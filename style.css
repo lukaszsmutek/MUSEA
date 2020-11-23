@@ -26,24 +26,25 @@ h3,
 h4,
 h5,
 h6,
-nav,button {
+nav,
+button {
     font-family: "Poppins", sans-serif;
     color: var(--blue);
 }
 
 h1 {
-    font-size:clamp(2.5rem,1.78rem + 3.2vw,5rem);
+    font-size: clamp(2.5rem, 1.78rem + 3.2vw, 5rem);
     line-height: 120%;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     z-index: 1;
 }
 
-h2{
+h2 {
     font-size: 2rem;
 }
 
@@ -80,7 +81,7 @@ nav li {
     height: 90vh;
     background-color: transparent;
     padding: 5vw;
-    border:1px solid transparent;
+    border: 1px solid transparent;
     border-radius: 20px;
 }
 
@@ -89,7 +90,7 @@ nav li {
     background: transparent url(./components/images/landing-image-horizontal.jpg) no-repeat;
     background-size: cover;
     background-position: center 0px;
-    border:1px solid transparent;
+    border: 1px solid transparent;
     border-radius: 20px;
     opacity: 0.7;
     top: 0;
@@ -100,47 +101,59 @@ nav li {
     width: 100%;
     position: absolute;
 }
+
 /*--social-media-container--------------------------------------------------------------------------------------------------*/
-#social-media-icon-container{
-    position:fixed;
-    width:50px;
-    height:173px;
-    background-color:var(--opacity);
-    left:5vw;
-    bottom:10vh;
-    border:1px solid transparent;
+#social-media-icon-container {
+    position: fixed;
+    width: 50px;
+    height: 178px;
+    background-color: var(--opacity);
+    left: 5vw;
+    bottom: 10vh;
+    border: 1px solid transparent;
     border-radius: 0px 15px 15px 0px;
-    display:flex;
+    display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
     align-items: center;
 }
 
-.social-media-icon{
-    background-color:transparent;
-    color: var(--blue);
-    width:37px;
-    height:37px;
+.social-media-icon {
+    background-color: transparent;
+    width: 38px;
+    height: 38px;
     border: 2px solid var(--blue);
-    border-radius:50%;
+    border-radius: 50%;
     cursor: pointer;
-    transition:  all 0.3s ease-out;
-    position:relative;
+    transition: all 0.3s ease-out;
+    position: relative;
 }
 
-button.social-media-icon:hover{
-    transform: scale(1.05);
+.social-media-icon:hover {
+    transform: scale(1.1);
 }
 
-#linkedin::after, #instagram::after {
-    content:"";
+#linkedin::after,
+#instagram::after,
+#instagram::before,
+#facebook::before {
+    content: "";
     position: absolute;
-    width:2px;
-    height:22px;
+    width: 2px;
+    height: 15px;
     background-color: var(--blue);
-    top:33px;
     left:50%;
-    transform:translateX(-50%);
+    transform: translateX(-50%);
+}
+
+#instagram::before,
+#facebook::before {
+    top:-15px;
+}
+
+#linkedin::after,
+#instagram::after {
+    top: 34px;
 }
 
 /*----------------------------------------------------------------------tablet&desktop-------------------------------------------------*/
@@ -151,7 +164,7 @@ button.social-media-icon:hover{
 
     h1 {
         top: 50%;
-        left:auto;
+        left: auto;
         right: 10vw;
         transform: translateY(-50%);
     }
