@@ -20,10 +20,10 @@ inputs.forEach((input) => {
 
 //hamburger
 
-const hamburger = document.querySelector("#hamburger-menu-container");
-const menu = document.querySelector(".menu-items-container");
-const listItems = document.querySelector(".list-items");
-const listItem = document.querySelectorAll(".list-item");
+const hamburger = document.querySelector(".header__hamburger-container");
+const menu = document.querySelector(".header__menu-container");
+const listItems = document.querySelector(".header__menu");
+const listItem = document.querySelectorAll(".header__menu-item");
 
 const menuAnimation=()=>{for(let i=0; i<listItem.length; i++){
     if(listItem[i].style.transform===(""))
