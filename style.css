@@ -33,7 +33,6 @@ textarea {
     line-height: 150%;
 }
 
-h1,
 h2,
 h3,
 h4,
@@ -47,17 +46,6 @@ span {
     color: var(--blue);
 }
 
-h1 {
-    font-size: clamp(2.5rem, 1.78rem + 3.2vw, 5rem);
-    line-height: 120%;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-}
 
 h2 {
     font-size: clamp(1.75rem, 0.85rem + 4vw, 2.62rem);
@@ -116,6 +104,13 @@ body {
     transition: transform 1s ease-in-out, height 2s ease-in-out;
 }
 
+.header__menu {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
 .header__menu-item {
     font-size: 1rem;
     background-color: transparent;
@@ -141,13 +136,6 @@ body {
 .active .header__menu .header__menu-item {
     opacity: 1;
     transition: transform 1.8s ease-in-out 0.5s, background-color 0.5s ease-in-out, color 0.5s ease-in-out, opacity 1s ease-in-out;
-}
-
-.header__menu {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    height: 100%;
 }
 
 /*--hamburger----------------------------------------------------------------------------------------------------------------------*/
@@ -228,14 +216,14 @@ body {
 }
 
 /*--hero---------------------------------------------------------------------------------------------------------------------------*/
-#hero-banner {
+.main__hero {
     position: relative;
     height: 90vh;
     background-color: transparent;
     padding: 5vw;
 }
 
-#hero-banner::after {
+.main__hero::after {
     content: "";
     background: transparent url(./components/images/landing-image-horizontal.jpg) no-repeat;
     background-size: cover;
@@ -248,6 +236,20 @@ body {
     height: 90vh;
     width: 100%;
     position: absolute;
+}
+
+.main__hero-header{
+    font-family: "Poppins", sans-serif;
+    color: var(--blue);
+    font-size: clamp(2.5rem, 1.78rem + 3.2vw, 5rem);
+    line-height: 120%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
 }
 
 /*--services----------------------------------------------------------------------------------------------------------------*/
@@ -558,7 +560,7 @@ address {
         width: 90vw;
     }
 
-    h1 {
+    .main__hero-header {
         top: 50%;
         left: auto;
         right: 10vw;
