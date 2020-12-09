@@ -40,3 +40,13 @@ hamburger.addEventListener('click', handleClick);
 
 //social media scroll
 
+const container=document.querySelector("#social-media-icons");
+const visible=()=>{container.classList.remove("scroll");}
+let isScroll;
+const invisible=()=>{container.classList.add("scroll");
+window.clearTimeout (isScroll);
+isScroll=setTimeout(visible,200);
+}
+
+
+window.addEventListener('scroll',invisible,false)

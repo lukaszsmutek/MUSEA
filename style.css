@@ -4,6 +4,7 @@
     --white: #fff;
     --dark-gray: rgb(35, 35, 35);
     --opacity: rgba(255, 255, 255, 0.7);
+    scroll-behavior: smooth;
 }
 
 /*------------------------------------------------smartphones--------------------------------------------------------------------------*/
@@ -11,6 +12,7 @@
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 * {
@@ -68,6 +70,7 @@ h5 {
 }
 
 body {
+    min-height: 1000px;
     width: 100vw;
     background-color: var(--white);
     overflow-x: hidden;
@@ -79,6 +82,7 @@ body {
     background-color: var(--light-gray);
     overflow: hidden;
 }
+
 
 /*--header-------------------------------------------------------------------------------------------------------------------------*/
 header {
@@ -460,17 +464,24 @@ textarea.input {
     position: fixed;
     width: 50px;
     height: 178px;
-    background-color: var(--opacity);
     left: 5vw;
     bottom: 10vh;
+    overflow: hidden;
+}
+#social-media-icons{
+    position: absolute;
+    width: 50px;
+    height: 178px;
+    background-color: var(--opacity);
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
     align-items: center;
+    transition: 0.5s ease-in-out;
 }
-
-#social-media-icon-container.scroll {
+#social-media-icons.scroll {
     opacity:0;
+    transform:translateX(-50px);
 }
 
 .social-media-icon {
