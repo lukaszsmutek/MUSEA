@@ -26,11 +26,12 @@
 
 <body>
     <div class="wrapper">
+        <!--header-->
         <header class="header">
             <div class="header__logo">
                 <img src="./components/images/logo.png" height="40" alt="logo">
             </div>
-            
+
             <div class="header__language">
                 <!--
                 <div id="language-toggle">
@@ -38,9 +39,9 @@
                     <img src="./components/icons/language/poland-flag-icon-32.png" alt="">
                 </div>-->
                 <nav class="header__navigation">
-                    <div class="header__hamburger-container" >
+                    <div class="header__hamburger-container">
                         <div class="header__hamburger-icon">
-                            <span class="header__hamburger-line" >
+                            <span class="header__hamburger-line">
                             </span>
                         </div>
                     </div>
@@ -53,21 +54,23 @@
                     </div>
                 </nav>
             </div>
-
         </header>
+        <!--main-->
         <main class="main">
+            <!--hero-->
             <div class="main__hero">
                 <h1 class="main__hero-header">
                     Kopie<br>&&nbsp;reprinty<br>muzealne
                 </h1>
             </div>
-            <article class="menu-item" id="about-us">
-                <div class="menu-item-title">
-                    <!--<h2>MUSEA</h2>-->
+            <!--about-->
+            <article class="main__article--about">
+                <div class="main__article-title-container">
+                    <!--<h2 class="main__article-title">MUSEA</h2>-->
                     <img src="./components/images/logo-full.png" alt="">
                 </div>
-                <div class="menu-item-content">
-                    <p>
+                <div class="main__article-content">
+                    <p class="main__article-paragraph">
                         Specjalizujemy się w produkcji wysokiej jakości kopii, reprintów oraz tapet edukacyjnych na
                         potrzeby muzeów, ekspozycji historycznych, wystaw oraz scenografii. Od 2012 r. wykonaliśmy ponad
                         dwa tysiące kopii i reprintów dla placówek muzealnych w całym kraju. Współpracujemy z muzeami,
@@ -75,17 +78,16 @@
                     </p>
                 </div>
             </article>
-
-            <article id="services">
-                <div class="menu-item">
-                    <div class="menu-item-title">
-                        <h2>Kopie i reprinty</h2>
+            <!--service-->
+            <article class="main__articles">
+                <div class="main__article">
+                    <div class="main__article-title-container">
+                        <h2 class="main__article-title">Kopie i reprinty</h2>
                     </div>
-                    <div class="menu-item-content">
-
-                        <section>
-                            <h4>Dlaczego kopie i reprinty?</h4>
-                            <p>
+                    <div class="main__article-content">
+                        <section class="main__section">
+                            <h4 class="main__section-title">Dlaczego kopie i reprinty?</h4>
+                            <p class="main__section-paragraph">
                                 Eksponaty papierowe znajdujące się w kolekcjach muzealnych są szczególnie wrażliwe na
                                 wilgoć i światło, przez co czas ich ekspozycji jest ograniczony. Kopie i reprinty
                                 pozwalają tymczasowo lub trwale zastąpić obiekty oryginalne i uniknąć ryzyka częstych
@@ -95,9 +97,9 @@
                                 narracji wystawy.
                             </p>
                         </section>
-                        <section>
-                            <h4>Kopia czy reprint?</h4>
-                            <p>
+                        <section class="main__section">
+                            <h4 class="main__section-title">Kopia czy reprint?</h4>
+                            <p class="main__section-paragraph">
                                 Produkowane przez nas reprinty to wysokiej jakości wydruki cyfrowe oddające rozmiar i
                                 kolorystykę oryginału. Pełniejsze wyobrażenie o obiekcie oryginalnym dają kopie, które
                                 poza kolorystyką i rozmiarem odtwarzają także inne cechy, jak rodzaj papieru, strukturę
@@ -105,9 +107,9 @@
                                 oryginału.
                             </p>
                         </section>
-                        <section>
-                            <h4>Jak powstają nasze kopie i reprinty</h4>
-                            <p>
+                        <section class="main__section">
+                            <h4 class="main__section-title">Jak powstają nasze kopie i reprinty</h4>
+                            <p class="main__section-paragraph">
                                 Kopie i reprinty wykonujemy korzystając z dokumentacji własnej lub powierzonej, przy
                                 użyciu najwyższej jakości produktów spełniających wytyczne konserwatorskie oraz normy
                                 DIN, ISO i ANSI dla materiałów archiwalnych. Łączymy nowoczesne i tradycyjne
@@ -121,13 +123,13 @@
                         </section>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <div class="menu-item-title">
-                        <h2>Tapety edukacyjne</h2>
+                <div class="main__article">
+                    <div class="main__article-title-container">
+                        <h2 class="main__article-title">Tapety edukacyjne</h2>
                     </div>
-                    <div class="menu-item-content">
-                        <section>
-                            <p>
+                    <div class="main__article-content">
+                        <section class="main__section">
+                            <p class="main__section-paragraph">
                                 Tapety edukacyjne to rozwiązanie umożliwiające pokrywanie dużych powierzchni wysokiej
                                 jakości drukiem i maksymalne wykorzystanie przestrzeni ekspozycyjnej. Stanowią
                                 integralną część scenografii wystawy jako tło dla multimediów i eksponatów. Łatwy montaż
@@ -140,55 +142,56 @@
                         </section>
                     </div>
                 </div>
-
             </article>
-            <article class="menu-item" id="contact">
-                <div class="menu-item-title" id="contact-information-container">
-                    <h2 id="contact-header">Bądźmy w kontakcie</h2>
-                    <div id="contact-items">
-                        <div class="contact-item">
-                            <img src="./components/icons/contact/phone.svg" alt="phone" class="contact-icon">
-                            <a href="tel:795-057-442" class="contact-data">
-                                <p>795-057-442</p>
+            <!--contact-->
+            <article class="main__article--contact">
+                <div class="main__article-container--contact">
+                    <h2 class="main__article-title--contact">Bądźmy w kontakcie</h2>
+                    <div class ="main__article-content--contact">
+                        <div class="main__article-icon-container">
+                            <img src="./components/icons/contact/phone.svg" alt="phone" class="main__article-icon">
+                            <a href="tel:795-057-442" class="main__article-anchor">
+                                <p class="main__article-paragraph--contact">795-057-442</p>
                             </a>
                         </div>
-                        <div class="contact-item">
-                            <img src="./components/icons/contact/mail.svg" alt="mail" class="contact-icon">
+                        <div class="main__article-icon-container">
+                            <img src="./components/icons/contact/mail.svg" alt="mail" class="main__article-icon">
                             <a href=”mailto:contact@musea.pl” target=”_blank” rel="noopener noreferrer"
-                                class="contact-data">
-                                <p>kontakt@musea.pl</p>
+                                class="main__article-anchor">
+                                <p class="main__article-paragraph--contact">kontakt@musea.pl</p>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div id="contact-form-container">
-                    <form action="">
-                        <h2 id="form-header">Napisz do nas</h2>
-                        <div class="input-container">
-                            <input type="text" name="name" class="input">
-                            <label for="name">Imię</label>
-                            <span>Imię</span>
+                <div class="main__article-container--contact-form">
+                    <form action="" class="main__form">
+                        <h2 class="main__form-header">Napisz do nas</h2>
+                        <div class="main__form-input-container">
+                            <input type="text" name="name" class="main__form-input">
+                            <label for="name" class="main__form-label">Imię</label>
+                            <span class="main__form-span">Imię</span>
                         </div>
-                        <div class="input-container">
-                            <input type="email" name="email" class="input">
-                            <label for="email">Email</label>
-                            <span>Email</span>
+                        <div class="main__form-input-container">
+                            <input type="email" name="email" class="main__form-input">
+                            <label for="email" class="main__form-label"> Email</label>
+                            <span class="main__form-span">Email</span>
                         </div>
-                        <div class="input-container">
-                            <input type="tel" name="phone" class="input">
-                            <label for="phone">Telefon</label>
-                            <span>Telefon</span>
+                        <div class="main__form-input-container">
+                            <input type="tel" name="phone" class="main__form-input">
+                            <label for="phone" class="main__form-label">Telefon</label>
+                            <span class="main__form-span">Telefon</span>
                         </div>
-                        <div class="input-container textarea">
-                            <textarea name="message" class="input"></textarea>
-                            <label for="message">Wiadomość</label>
-                            <span>Wadomość</span>
+                        <div class="main__form-input-container textarea">
+                            <textarea name="message" class="main__form-input--textarea"></textarea>
+                            <label for="message" class="main__form-label">Wiadomość</label>
+                            <span class="main__form-span">Wadomość</span>
                         </div>
-                        <input type="submit" value="Wyślij" id="submit-btn">
+                        <input type="submit" value="Wyślij" class="main__form-input--submit">
                     </form>
                 </div>
             </article>
+            <!--clients-->
             <div id="clients">
                 <h5>Nasi klienci</h5>
                 <div id="clients-icons-container">
@@ -201,6 +204,7 @@
                     </ul>
                 </div>
             </div>
+            <!--media-->
             <div id="social-media-icon-container">
                 <div id="social-media-icons">
                     <button class="social-media-icon" id="linkedin">In</button>
@@ -209,6 +213,7 @@
 
             </div>
         </main>
+        <!--footer-->
         <footer>
             <div id="copyright-container">
                 <h5 id="copyright">&copy; MUSEA 2020</h5>
@@ -239,8 +244,8 @@
             </div>
         </footer>
     </div>
-<!--scripts-------------------------------------------->
-<script src="./script.js"></script>
+    <!--scripts-------------------------------------------->
+    <script src="./script.js"></script>
 </body>
 
 </html>

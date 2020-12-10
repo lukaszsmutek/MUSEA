@@ -1,5 +1,5 @@
 //contact form
-const inputs = document.querySelectorAll(".input");
+const inputs = document.querySelectorAll(".main__form-input,.main__form-input--textarea");
 
 function focusFunc() {
     let parent = this.parentNode;
