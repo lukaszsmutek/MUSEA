@@ -143,22 +143,25 @@
                     </div>
                 </div>
             </article>
+            <article class="main__gallery">
+
+            </article>
             <!--contact-->
-            <article class="main__article--contact">
-                <div class="main__article-container--contact">
-                    <h2 class="main__article-title--contact">Bądźmy w kontakcie</h2>
-                    <div class ="main__article-content--contact">
-                        <div class="main__article-icon-container">
-                            <img src="./components/icons/contact/phone.svg" alt="phone" class="main__article-icon">
-                            <a href="tel:795-057-442" class="main__article-anchor">
-                                <p class="main__article-paragraph--contact">795-057-442</p>
+            <article class="main__contact-container">
+                <div class="main__contact">
+                    <h2 class="main__contact-title">Bądźmy w kontakcie</h2>
+                    <div class ="main__contact-content">
+                        <div class="main__contact-icon-container">
+                            <img src="./components/icons/contact/phone.svg" alt="phone" class="main__contact-icon">
+                            <a href="tel:795-057-442" class="main__contact-anchor">
+                                <p class="main__contact-paragraph">795-057-442</p>
                             </a>
                         </div>
-                        <div class="main__article-icon-container">
-                            <img src="./components/icons/contact/mail.svg" alt="mail" class="main__article-icon">
+                        <div class="main__contact-icon-container">
+                            <img src="./components/icons/contact/mail.svg" alt="mail" class="main__contact-icon">
                             <a href=”mailto:contact@musea.pl” target=”_blank” rel="noopener noreferrer"
-                                class="main__article-anchor">
-                                <p class="main__article-paragraph--contact">kontakt@musea.pl</p>
+                                class="main__contact-anchor">
+                                <p class="main__contact-paragraph">kontakt@musea.pl</p>
                             </a>
                         </div>
                     </div>
@@ -168,14 +171,16 @@
                     <form action="" class="main__form">
                         <h2 class="main__form-header">Napisz do nas</h2>
                         <div class="main__form-input-container">
-                            <input type="text" name="name" class="main__form-input">
+                            <input type="text" name="name" class="main__form-input" required>
                             <label for="name" class="main__form-label">Imię</label>
                             <span class="main__form-span">Imię</span>
+                            <span class="main__form-span--empty">Wpisz swoje imię</span>
                         </div>
                         <div class="main__form-input-container">
-                            <input type="email" name="email" class="main__form-input">
+                            <input type="email" name="email" class="main__form-input" required>
                             <label for="email" class="main__form-label"> Email</label>
                             <span class="main__form-span">Email</span>
+                            <span class="main__form-span--empty">Wpisz poprawny adres email</span>
                         </div>
                         <div class="main__form-input-container">
                             <input type="tel" name="phone" class="main__form-input">
@@ -183,24 +188,27 @@
                             <span class="main__form-span">Telefon</span>
                         </div>
                         <div class="main__form-input-container textarea">
-                            <textarea name="message" class="main__form-input--textarea"></textarea>
+                            <textarea name="message" class="main__form-input--textarea" required></textarea>
                             <label for="message" class="main__form-label">Wiadomość</label>
                             <span class="main__form-span">Wadomość</span>
+                            <span class="main__form-span--empty">Wpisz treść wiadomości</span>
                         </div>
                         <input type="submit" value="Wyślij" class="main__form-input--submit">
                     </form>
                 </div>
+            </article>
+            <article class="main__clients-container">
             </article>
             <!--clients-->
             <div id="clients">
                 <h5>Nasi klienci</h5>
                 <div id="clients-icons-container">
                     <ul id="client-icons">
-                        <li class="client-icon" id="0">a</li>
-                        <li class="client-icon" id="1">s</li>
-                        <li class="client-icon" id="2">d</li>
-                        <li class="client-icon" id="3">f</li>
-                        <li class="client-icon" id="4">g</li>
+                        <li class="client-icon" id="0"></li>
+                        <li class="client-icon" id="1"><img src="./components/images/nbp.svg" alt=""></li>
+                        <li class="client-icon" id="2"><img src="./components/images/mjp.svg" alt=""></li>
+                        <li class="client-icon" id="3"><img src="./components/images/polin.svg" alt=""></li>
+                        <li class="client-icon" id="4"></li>
                     </ul>
                 </div>
             </div>
