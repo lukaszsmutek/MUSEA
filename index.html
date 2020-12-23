@@ -29,7 +29,7 @@
         <!--header-->
         <header class="header">
             <div class="header__logo">
-                <img src="./components/images/logo.png" height="40" alt="logo">
+                <img src="./components/images/logo-musea.svg" height="40" alt="logo">
             </div>
 
             <div class="header__language">
@@ -67,15 +67,20 @@
             <article class="main__article--about">
                 <div class="main__article-title-container">
                     <!--<h2 class="main__article-title">MUSEA</h2>-->
-                    <img src="./components/images/logo-full.png" alt="">
+                    <img src="./components/images/logo-musea.svg" height="50px" alt="">
                 </div>
                 <div class="main__article-content">
-                    <p class="main__article-paragraph">
-                        Specjalizujemy się w produkcji wysokiej jakości kopii, reprintów oraz tapet edukacyjnych na
-                        potrzeby muzeów, ekspozycji historycznych, wystaw oraz scenografii. Od 2012 r. wykonaliśmy ponad
-                        dwa tysiące kopii i reprintów dla placówek muzealnych w całym kraju. Współpracujemy z muzeami,
-                        architektami, projektantami i wykonawcami wystaw muzealnych.
-                    </p>
+                    <div class="main__section">
+                        <h4 class="main__section-title">Czym się zajmujemy?</h4>
+                        <p class="main__section-paragraph">
+                            Specjalizujemy się w produkcji wysokiej jakości kopii, reprintów oraz tapet edukacyjnych na
+                            potrzeby muzeów, ekspozycji historycznych, wystaw oraz scenografii. Od 2012 r. wykonaliśmy
+                            ponad
+                            dwa tysiące kopii i reprintów dla placówek muzealnych w całym kraju. Współpracujemy z
+                            muzeami,
+                            architektami, projektantami i wykonawcami wystaw muzealnych.
+                        </p>
+                    </div>
                 </div>
             </article>
             <!--service-->
@@ -150,7 +155,7 @@
             <article class="main__contact-container">
                 <div class="main__contact">
                     <h2 class="main__contact-title">Bądźmy w kontakcie</h2>
-                    <div class ="main__contact-content">
+                    <div class="main__contact-content">
                         <div class="main__contact-icon-container">
                             <img src="./components/icons/contact/phone.svg" alt="phone" class="main__contact-icon">
                             <a href="tel:795-057-442" class="main__contact-anchor">
@@ -174,13 +179,13 @@
                             <input type="text" name="name" class="main__form-input" required>
                             <label for="name" class="main__form-label">Imię</label>
                             <span class="main__form-span">Imię</span>
-                            <span class="main__form-span--empty">Wpisz swoje imię</span>
+                            <span class="main__form-span--alert">Wpisz swoje imię</span>
                         </div>
                         <div class="main__form-input-container">
                             <input type="email" name="email" class="main__form-input" required>
                             <label for="email" class="main__form-label"> Email</label>
                             <span class="main__form-span">Email</span>
-                            <span class="main__form-span--empty">Wpisz poprawny adres email</span>
+                            <span class="main__form-span--alert">Wpisz poprawny adres email</span>
                         </div>
                         <div class="main__form-input-container">
                             <input type="tel" name="phone" class="main__form-input">
@@ -191,7 +196,7 @@
                             <textarea name="message" class="main__form-input--textarea" required></textarea>
                             <label for="message" class="main__form-label">Wiadomość</label>
                             <span class="main__form-span">Wadomość</span>
-                            <span class="main__form-span--empty">Wpisz treść wiadomości</span>
+                            <span class="main__form-span--alert">Wpisz treść wiadomości</span>
                         </div>
                         <input type="submit" value="Wyślij" class="main__form-input--submit">
                     </form>
@@ -201,14 +206,14 @@
             </article>
             <!--clients-->
             <div id="clients">
-                <h5>Nasi klienci</h5>
+                <h5 class="main__article-title">Nasi klienci</h5>
                 <div id="clients-icons-container">
                     <ul id="client-icons">
-                        <li class="client-icon" id="0"></li>
-                        <li class="client-icon" id="1"><img src="./components/images/nbp.svg" alt=""></li>
-                        <li class="client-icon" id="2"><img src="./components/images/mjp.svg" alt=""></li>
-                        <li class="client-icon" id="3"><img src="./components/images/polin.svg" alt=""></li>
-                        <li class="client-icon" id="4"></li>
+                        <li class="client-icon" id="1"><img src="./components/images/nbp.svg" alt="Centrum Pieniądza Polskiego NBP" title=""></li>
+                        <li class="client-icon" id="2"><img src="./components/images/ms.svg" alt="Muzeum Śląskie" title=""></li>
+                        <li class="client-icon" id="3"><img src="./components/images/polin.svg" alt="POLIN" title=""></li>
+                        <li class="client-icon" id="4"><img src="./components/images/mjp.svg" alt="Muzeum Józefa Piłsudskiego" title=""></li>
+                        <li class="client-icon" id="4"><img src="./components/images/zih.svg" alt="Żydowski Instytut Historyczny" title=""></li>
                     </ul>
                 </div>
             </div>

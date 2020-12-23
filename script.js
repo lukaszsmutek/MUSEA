@@ -29,7 +29,9 @@ const menuAnimation=()=>{for(let i=0; i<listItem.length; i++){
     if(listItem[i].style.transform===(""))
     { listItem[i].style.transform=("translateY("+[i]*50+"px)");}
    else{listItem[i].style.transform=("");}
-}}
+}
+}
+
 
 const handleClick=()=>{hamburger.classList.toggle("active");
 menu.classList.toggle("active");
