@@ -111,11 +111,19 @@ body {
     height: 100%;
 }
 
+.header__menu-item-wrapper{
+    width:100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition:all 1.8s ease-in-out;
+    transition: transform 1.8s ease-in-out, background-color 0.5s ease-in-out, color 0.5s ease-in-out, opacity 1s ease-in-out;
+}
+
 .header__menu-item {
     font-size: 1rem;
     background-color: transparent;
-    display: block;
-    position: absolute;
     padding: 0.8em;
     cursor: pointer;
     border: 2px solid var(--blue);
@@ -123,19 +131,21 @@ body {
     text-align: center;
     opacity: 0;
     width: 100%;
-    top: 0;
-    right: 0;
-    transition: transform 1.8s ease-in-out, background-color 0.5s ease-in-out, color 0.5s ease-in-out, opacity 0.5s ease-in-out 1.5s;
-}
-
-
-.active .header__menu .header__menu-item {
-    opacity: 1;
-    transition: transform 1.8s ease-in-out 0.5s, background-color 0.5s ease-in-out, color 0.5s ease-in-out, opacity 1s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 1s ease-in-out;
 }
 
 .header__menu-item:hover{
-    transform:scale(0.5);
+    transform:scale(1.038) perspective(0px) translateZ(0);
+    backface-visibility: hidden;
+}
+
+.active .header__menu-item{
+    opacity: 1;}
+    
+
+.active .header__menu .header__menu-item-wrapper {
+    opacity: 1;
+    transition: transform 1.8s ease-in-out 0.5s, background-color 0.5s ease-in-out, color 0.5s ease-in-out, opacity 1s ease-in-out;
 }
 
 /*--hamburger----------------------------------------------------------------------------------------------------------------------*/
@@ -263,7 +273,7 @@ body {
 .main__article--about {
     background-color: transparent;
     display: grid;
-    min-height: 30vh;
+    min-height: 40vh;
     grid-template-columns: 30vw 1fr;
     align-items: center;
     background-color: var(--white);
@@ -277,6 +287,12 @@ body {
     font-family: "Poppins", sans-serif;
     color: var(--blue);
     font-size: 3rem;
+}
+
+.main__article-content::after{
+    content:'';
+    display:block;
+    height: 4em;
 }
 
 .main__section-title {
@@ -303,6 +319,7 @@ body {
     font-size: 1.6rem;
     color: var(--dark-gray);
     line-height: 150%;
+    margin-bottom: 1em;
 }
 /*--contact------------------------------------------------------------------------------------------------------------------*/
 .main__contact-icon {
@@ -541,7 +558,8 @@ display:none;
 #client-icons {
     display: flex;
     flex-flow: row wrap;
-    align-items: stretch;
+    align-items: center;
+    min-height: 30vh;
     justify-content: space-evenly;
 }
 
