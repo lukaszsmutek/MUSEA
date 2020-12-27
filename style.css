@@ -2,6 +2,7 @@
     --blue: #1c3c94;
     --light-gray: #e4e4e4;
     --white: #fff;
+    --transparent: rgba(255,255,255,0.6);
     --dark-gray: rgb(35, 35, 35);
     --opacity: rgba(255, 255, 255, 0.7);
     --error: #a3a3a3;
@@ -228,10 +229,13 @@ body {
 
 /*--hero---------------------------------------------------------------------------------------------------------------------------*/
 .main__hero {
-    position: relative;
+    position: fixed;
+    top:70px;
+    width:90vw;
     height: 90vh;
     background-color: transparent;
     padding: 5vw;
+    margin:auto;
 }
 
 .main__hero::after {
@@ -264,19 +268,23 @@ body {
 }
 
 /*--services----------------------------------------------------------------------------------------------------------------*/
+.main__articles{
+background-color: var(--transparent);
+z-index:6;
+position:relative;
+}
+
 .main__article {
-    background-color:transparent;
     display: grid;
     grid-template-columns: 30vw 1fr;
     align-items: center;
 }
 .main__article--about {
-    background-color: transparent;
+    margin-top:100vh;
     display: grid;
     min-height: 40vh;
     grid-template-columns: 30vw 1fr;
     align-items: center;
-    background-color: var(--white);
 }
 
 .main__article-title-container {
@@ -580,6 +588,7 @@ display:none;
     left: 5vw;
     bottom: 10vh;
     overflow: hidden;
+    z-index: 1000;
 }
 
 #social-media-icons {
