@@ -73,11 +73,14 @@ body {
 
 /*--header-------------------------------------------------------------------------------------------------------------------------*/
 .header {
+    position:fixed;
+    width:90vw;
     height: 70px;
     background-color: var(--white);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index:1000;
 }
 
 /*--nav----------------------------------------------------------------------------------------------------------------------------*/
@@ -96,7 +99,7 @@ body {
     top: -30px;
     right: -300px;
     z-index: 1500;
-    transition: transform 1s ease-in-out 1.2s, height 1.8s ease-in-out;
+    transition: transform 1.2s ease-in-out 1.2s, height 1.8s ease-in-out;
 }
 
 .header__menu-container.active {
@@ -119,7 +122,6 @@ body {
     top: 0;
     right: 0;
     transition:all 1.8s ease-in-out;
-    transition: transform 1.8s ease-in-out, background-color 0.5s ease-in-out, color 0.5s ease-in-out, opacity 1s ease-in-out;
 }
 
 .header__menu-item {
@@ -132,7 +134,7 @@ body {
     text-align: center;
     opacity: 0;
     width: 100%;
-    transition: transform 0.3s ease-in-out, opacity 1s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 1s ease-in-out 0.6s;
 }
 
 .header__menu-item:hover{
@@ -141,12 +143,13 @@ body {
 }
 
 .active .header__menu-item{
-    opacity: 1;}
+    opacity: 1;
+    }
     
 
 .active .header__menu .header__menu-item-wrapper {
     opacity: 1;
-    transition: transform 1.8s ease-in-out 0.5s, background-color 0.5s ease-in-out, color 0.5s ease-in-out, opacity 1s ease-in-out;
+    transition: transform 1.8s ease-in-out 0.5s, background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 /*--hamburger----------------------------------------------------------------------------------------------------------------------*/
@@ -167,7 +170,7 @@ body {
     height: 30px;
     background-color: transparent;
     cursor: pointer;
-    transition: 1s ease-in-out 1.2s;
+    transition: 1.2s ease-in-out 1.2s;
 }
 
 .active .header__hamburger-icon {
@@ -231,11 +234,12 @@ body {
 .main__hero {
     position: fixed;
     top:70px;
-    width:90vw;
+    width:100vw;
     height: 90vh;
     background-color: transparent;
     padding: 5vw;
     margin:auto;
+    overflow: hidden;
 }
 
 .main__hero::after {
@@ -256,15 +260,31 @@ body {
 .main__hero-header {
     font-family: "Poppins", sans-serif;
     color: var(--blue);
-    font-size: 6rem;
-    line-height: 120%;
-    letter-spacing: 0.1em;
+    font-size: 3rem;
+    letter-spacing: 0.5em;
     text-transform: uppercase;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+    text-align: center;
+}
+
+.main__hero-header::before {
+    content: 'Kopie & reprinty muzealne';
+    font-family: "Poppins", sans-serif;
+    color: var(--blue);
+    opacity:0.5;
+    font-size: 3rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    text-align: center;
 }
 
 /*--services----------------------------------------------------------------------------------------------------------------*/
@@ -676,10 +696,11 @@ address {
         width: 90vw;
     }
 
-    .main__hero-header {
-        top: 50%;
-        left: auto;
-        right: 10vw;
-        transform: translateY(-50%);
+    .main__hero{
+        width:90vw;
+    }
+
+    .main__hero-header{
+        white-space: nowrap;
     }
 }
