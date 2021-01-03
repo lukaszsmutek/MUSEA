@@ -41,7 +41,6 @@ const handleClick = () => {
 }
 
 hamburger.addEventListener('click', handleClick);
-console.log(listItem);
 
 //social media scroll
 
@@ -61,11 +60,15 @@ window.addEventListener('scroll', invisible, false)
 //hero header scroll
 
 const header = document.querySelector(".main__hero-header");
-window.addEventListener("scroll", function(){
+window.addEventListener("scroll", function () {
     let value = window.scrollY;
-    header.style.top= ("calc( 50% - " + value*0.5 + "px)");
-    header.style.letterSpacing = ("calc( 0.5em + " + value*0.01 + "em)");
+    header.style.top = ("calc( 50% - " + value * 0.5 + "px)");
+    header.style.letterSpacing = ("calc( 0.5em + " + value * 0.01 + "em)");
     //header.style.lineHeight = ("calc( 120% - " + value*0.5 + "%)");
-    header.style.opacity = ("calc( 1 - " + value*0.005 + ")")
-    }
-);
+    header.style.opacity = ("calc( 1 - " + value * 0.005 + ")")
+});
+
+//gallery-carousel
+
+const indicator=document.querySelector(".main__gallery-nav-indicator");
+indicator.addEventListener("click", function(){console.log(indicator.getBoundingClientRect())})
