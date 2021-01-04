@@ -303,7 +303,7 @@ body {
 
 .main__article--about {
     margin-top: 100vh;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
     display: grid;
     min-height: 40vh;
     grid-template-columns: 30vw 1fr;
@@ -311,7 +311,7 @@ body {
 }
 
 .main__article--products {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .main__article-title-container {
@@ -356,8 +356,8 @@ body {
 .main__gallery-container {
     position: relative;
     width: 100%;
-    background-color: white;
-    height:70vh;
+    background-color:rgba(255,255,255);
+    height:100vh;
 }
 
 .main__gallery{
@@ -368,34 +368,56 @@ body {
     left:50%;
     top:50%;
     transform:translate(-50%,-50%);
-    background-color: rgb(213, 213, 213);
-    height:76%;
+    background-color: transparent;
+    height:80%;
 }
 
 .main__gallery-carousel-container{
-position:relative;
-background-color: rgb(179, 179, 179);
+background-color: transparent;
 height:90%;
+width:100%;
 }
 
 .main__gallery-carousel{
+    position: relative;
     height:100%;
     width:100%;
     background-color:var(--blue);
+    border:transparent;
+    border-radius:5px;
+}
 
+.main__gallery-carousel-slide{
+position:absolute;
+height:100%;
+width:100%;
+}
+
+.main__gallery-image{
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
 .main__gallery-btn-container{
     position:absolute;
-    top:0;
-    background-color:var(--transparent);
+    top:50%;
+    transform:translateY(-50%);
+    background-color:rgba(255,255,255,0.8);
     border:transparent;
-    border-radius: 0px 5px 5px 0;
     padding:5px;
 }
 
-.main__gallery-btn-container{
-    /*lewy i prawy zróżnicować rogi i pozycję*/
+.main__gallery-btn-container--prev{
+    border-radius: 0px 5px 5px 0;
+    left:0;
+    
+}
+
+.main__gallery-btn-container--next{
+    border-radius: 5px 0 0 5px;
+    right:0;
+    
 }
 
 .main__gallery-btn {
@@ -431,14 +453,16 @@ height:90%;
     left: 10px;
     transform: rotate(135deg);
 }
-
+.main__gallery-nav{
+    margin:auto;
+}
 .main__gallery-nav-indicator {
     position: relative;
     width: 24px;
-    height: 2px;
+    height: 3px;
     margin: 0 4px;
     cursor: pointer;
-    background-color: #e1e1e1;
+    background-color: #b5b3b3;
     outline: none;
     border: none;
 }
