@@ -262,21 +262,22 @@ body {
     font-family: "Poppins", sans-serif;
     color: var(--blue);
     font-size: 3rem;
+    opacity: 1;
     letter-spacing: 0.5em;
     text-transform: uppercase;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1;
+    z-index: 2;
     text-align: center;
 }
 
-.main__hero-header::before {
+.main__hero-header::after {
     content: 'Kopie & reprinty muzealne';
     font-family: "Poppins", sans-serif;
     color: var(--blue);
-    opacity: 0.5;
+    opacity:0.5;
     font-size: 3rem;
     letter-spacing: 0.5em;
     text-transform: uppercase;
@@ -370,6 +371,7 @@ body {
     transform:translate(-50%,-50%);
     background-color: transparent;
     height:80%;
+    overflow: hidden;
 }
 
 .main__gallery-carousel-container{
@@ -385,6 +387,7 @@ width:100%;
     background-color:var(--blue);
     border:transparent;
     border-radius:5px;
+    transition: 0.5s ease-in-out;
 }
 
 .main__gallery-carousel-slide{
@@ -406,18 +409,19 @@ object-fit:cover;
     background-color:rgba(255,255,255,0.8);
     border:transparent;
     padding:5px;
+    cursor: pointer;
+    transition:0.3s ease-in-out;
 }
 
 .main__gallery-btn-container--prev{
     border-radius: 0px 5px 5px 0;
     left:0;
-    
+    opacity:0;
 }
 
 .main__gallery-btn-container--next{
     border-radius: 5px 0 0 5px;
     right:0;
-    
 }
 
 .main__gallery-btn {
@@ -454,7 +458,11 @@ object-fit:cover;
     transform: rotate(135deg);
 }
 .main__gallery-nav{
-    margin:auto;
+    height:10%;
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: center;
+    align-items: center;
 }
 .main__gallery-nav-indicator {
     position: relative;
@@ -465,6 +473,7 @@ object-fit:cover;
     background-color: #b5b3b3;
     outline: none;
     border: none;
+    transition: 0.3s ease-in-out;
 }
 
 
@@ -483,6 +492,9 @@ object-fit:cover;
     background-color: var(--blue);
 }
 
+.is-hidden{
+    display:none;
+}
 /*--contact------------------------------------------------------------------------------------------------------------------*/
 .main__contact-icon {
     width: 30px;
