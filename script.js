@@ -44,7 +44,7 @@ hamburger.addEventListener('click', handleClick);
 
 //social media scroll
 
-const container = document.querySelector("#social-media-icons");
+const container = document.querySelector(".social-media__icons");
 const visible = () => {
     container.classList.remove("scroll");
 }
