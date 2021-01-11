@@ -27,7 +27,6 @@
         <!--header-->
         <header class="header">
             <div class="header__logo">
-                <img src="./components/images/logo-musea.svg" height="40" alt="logo">
             </div>
             <nav class="header__navigation">
                 <div class="header__hamburger-container">
@@ -62,14 +61,14 @@
             </div>
             <!--about-->
             <div class="main__articles">
-                <article class="main__article--about">
+                <article class="main__article main__article--about">
                     <div class="main__article-title-container">
                         <!--<h2 class="main__article-title">MUSEA</h2>-->
                         <img src="./components/images/logo-musea.svg" height="50px" alt="">
                     </div>
                     <div class="main__article-content">
                         <div class="main__section">
-                            <h4 class="main__section-title">Czym się zajmujemy?</h4>
+                            <h4 class="main__section-title">Co robimy?</h4>
                             <p class="main__section-paragraph">
                                 Specjalizujemy się w&nbsp;produkcji wysokiej jakości kopii, reprintów oraz tapet
                                 edukacyjnych na
@@ -84,7 +83,7 @@
                     </div>
                 </article>
                 <!--service-->
-                <div class="main__article--products">
+                <div class="main__products">
                     <div class="main__article">
                         <div class="main__article-title-container">
                             <h2 class="main__article-title">Kopie i&nbsp;reprinty</h2>
@@ -187,9 +186,12 @@
                 <div class="main__gallery">
                     <div class="main__gallery-carousel-container">
                         <ul class="main__gallery-carousel">
-                            <li class="main__gallery-carousel-slide current-slide"><img src="./components/images/slide_00.jpg" alt="" class="main__gallery-image"></li>
-                            <li class="main__gallery-carousel-slide"><img src="./components/images/slide_01.jpg" alt="" class="main__gallery-image"></li>
-                            <li class="main__gallery-carousel-slide"><img src="./components/images/slide_02.jpg" alt="" class="main__gallery-image"></li>
+                            <li class="main__gallery-carousel-slide current-slide"><img
+                                    src="./components/images/slide_00.jpg" alt="" class="main__gallery-image"></li>
+                            <li class="main__gallery-carousel-slide"><img src="./components/images/slide_01.jpg" alt=""
+                                    class="main__gallery-image"></li>
+                            <li class="main__gallery-carousel-slide"><img src="./components/images/slide_02.jpg" alt=""
+                                    class="main__gallery-image"></li>
                         </ul>
                         <div class="main__gallery-btn-container main__gallery-btn-container--prev is-hidden">
                             <button class="main__gallery-btn main__gallery-btn--prev"></button>
@@ -268,8 +270,7 @@
                             <li class="clients__icon"><img src="./components/images/ms.svg" alt="Muzeum Śląskie"
                                     title="">
                             </li>
-                            <li class="clients__icon"><img src="./components/images/polin.svg" alt="POLIN"
-                                    title="">
+                            <li class="clients__icon"><img src="./components/images/polin.svg" alt="POLIN" title="">
                             </li>
                             <li class="clients__icon"><img src="./components/images/mjp.svg"
                                     alt="Muzeum Józefa Piłsudskiego" title=""></li>
@@ -298,26 +299,25 @@
             <div class="footer__company-info-container">
 
                 <address class="footer__company-info">
-                    <span id="company name">MUSEA</span>
-                    <br>
-                    ul. Żeromskiego 49b
-                    <br>
-                    23-213 Zakrzówek
-                    <br>
-                    <br>
-                    tel: <a href="tel:795-057-442">795-057-442</a>
-                    <br>
-                    e-mail: <a href=”mailto:contact@musea.pl” target=”_blank” rel=noopener
-                        noreferrer””>contact@musea.pl</a>
-                    <br>
-                    <br>
-                    nip: PL 715-173-08-23
-                    <br>
-                    konto bankowe: ING Bank Śląski, SWIFT: INGBPLPW
-                    66105014611000009134079301
+                    <ul class="company-info__address">
+                       <li>ul. Żeromskiego 49b</li>
+                       <li>23-213 Zakrzówek</li>
+                    </ul>
+                    <ul class="company-info__contact">
+                        <li>tel: <a href="tel:+48 795-057-442">+48 795-057-442</a></li>
+                       <li>e-mail: <a href=”mailto:contact@musea.pl” target=”_blank” rel=noopener
+                            noreferrer””>contact@musea.pl</a></li>
+                    </ul>
+                    <ul class="company-info__payments">
+                        <li>nip: PL 715-173-08-23</li>
+                        <li>konto bankowe: ING Bank Śląski, SWIFT: INGBPLPW66105014611000009134079301</li>
+                    </ul>
+                    <ul class="company-info__media">
+                        <li>Facebook</li>
+                        <li>Instagram</li>
+                        <li>LinkedIn</li>
+                    </ul>
                 </address>
-
-
             </div>
         </footer>
     </div>
