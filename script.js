@@ -62,7 +62,7 @@ window.addEventListener('scroll', invisible, false)
 const header = document.querySelector(".main__hero-header");
 window.addEventListener("scroll", function () {
     let value = window.scrollY;
-    //header.style.top = ("calc( 50% - " + value * 0.5 + "px)");
+    header.style.top = ("calc( 50% - " + value * 0.5 + "px)");
     header.style.letterSpacing = ("calc( 0.5em + " + value * 0.01 + "em)");
     header.style.opacity = ("calc( 1 - " + value * 0.005 + ")")
 });
