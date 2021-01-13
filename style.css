@@ -1,27 +1,14 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v7.0.29,
-* Autoprefixer: v9.7.6
-* Browsers: last 4 version
-*/
 
 :root {
     --primary: #1c3c94;
-    --darkblue: #1c3c9429;
-    --lightblue: #4174ff44;
-    --light-gray: #d6d6d6;
     --white: #fff;
     --transparent: rgba(255, 255, 255, 0.6);
-    --dark-gray: rgb(35, 35, 35);
     --opacity: rgba(255, 255, 255, 0.7);
     --error: #a3a3a3;
     --success: #8bbd00;
-
     scroll-behavior: smooth;
     font-size: 62.5%;
-    scroll-behavior: smooth;
 }
-
 * {
     margin: 0;
     padding: 0;
@@ -32,7 +19,6 @@
     text-decoration: none;
     outline: none;
 }
-
 /*------------------------------------------------<700px-width--------------------------------------------------------------------*/
 /*--general-----------------------------------*/
 body {
@@ -48,7 +34,6 @@ body {
     background-color: var(--white);
     overflow: hidden;
 }
-
 
 /*--header-------------------------------------------------------------------------------------------------------------------------*/
 .header {
@@ -189,13 +174,21 @@ body {
     position: relative;
     width: 30px;
     height: 30px;
-    background-color: white;
     padding: 1em;
-    outline: 1.5em solid white;
     cursor: pointer;
     -webkit-transition: 1.2s ease-in-out 1.2s;
     -o-transition: 1.2s ease-in-out 1.2s;
     transition: 1.2s ease-in-out 1.2s;
+}
+
+.header__hamburger-icon::before{
+    content:"";
+    position:absolute;
+    left:-10px;
+    top:-10px;
+    background-color:white;
+    width:50px;
+    height:50px;
 }
 
 .active .header__hamburger-icon {
@@ -357,6 +350,8 @@ body {
     padding: 2em 3em;
     position: relative;
 }
+
+
 
 .main__article--about {
     margin-top: 100vh;
@@ -1057,19 +1052,15 @@ padding:2em 3em;
 
     /*--services--------------------------------------------------------------------------------------------------*/
     .main__article {
-        display: -ms-grid;
-        display: grid;
         -ms-grid-columns: 30vw 1fr;
         grid-template-columns: 30vw 1fr;
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
         padding: 4em 6em;
-        position: relative;
     }
 
     .main__article--about {
-        margin-top: 100vh;
         padding-top: 8em;
     }
 
@@ -1082,7 +1073,6 @@ padding:2em 3em;
     .main__section {
         padding: 0 5em;
     }
-
     /*--gallery-----------------------------------------------------------------------------------------------------------------*/
     .main__gallery {
         width: 80%;
@@ -1143,6 +1133,7 @@ padding:2em 3em;
     }
 
     .social-media__icon {
+        position: relative;
         font-family: "Poppins", sans-serif;
         color: var(--primary);
         font-size: 1.4rem;
@@ -1156,7 +1147,7 @@ padding:2em 3em;
         -webkit-transition: all 0.3s ease-out;
         -o-transition: all 0.3s ease-out;
         transition: all 0.3s ease-out;
-        position: relative;
+        
     }
 
     .social-media__icon:hover {
