@@ -24,20 +24,36 @@ const hamburger = document.querySelector(".header__hamburger-container");
 const menu = document.querySelector(".header__menu-container");
 const listItems = document.querySelector(".header__menu");
 const listItem = document.querySelectorAll(".header__menu-item-wrapper");
-
+const showMenu = (i)=> {listItem[i].style.transform = ("translateY(" + [i] * 50 + "px)");}
+const hideMenu = (i)=>{ listItem[i].style.transform = ("");}
 const menuAnimation = () => {
     for (let i = 0; i < listItem.length; i++) {
         if (listItem[i].style.transform === ("")) {
-            listItem[i].style.transform = ("translateY(" + [i] * 50 + "px)");
+            showMenu(i);
         } else {
-            listItem[i].style.transform = ("");
+            hideMenu(i);
         }
     }
 }
+
 const handleClick = () => {
     hamburger.classList.toggle("active");
     menu.classList.toggle("active");
+    //-->hide menu if area outside is clicked
+    document.onclick = (e) => {
+        if (menu.contains(e.target) || hamburger.contains(e.target)) {
+            return
+        } else {
+            document.onclick = null;
+            hamburger.classList.remove("active");
+            menu.classList.remove("active");
+            for (let i = 0; i < listItem.length; i++) {
+                    hideMenu(i);
+                }
+        }
+    }
     menuAnimation();
+
 }
 
 hamburger.addEventListener('click', handleClick);
@@ -105,23 +121,30 @@ const dotNavUpdate = (currentDot, targetDot) => {
 //--button active/inactive 
 //opacity manipulation and setTimeout functions used for smooth transitions
 
-const buttonInactive= (prevButton,nextButton,slides,targetIndex) =>{
-if(targetIndex===0){
-    prevButton.style.opacity=("0");
-    setTimeout(()=>{prevButton.classList.add("is-hidden");},200)
-    nextButton.classList.remove("is-hidden");
-    nextButton.style.opacity=("1");
-}else if(targetIndex===slides.length - 1){
-    prevButton.classList.remove("is-hidden");
-    nextButton.style.opacity=("0");
-    setTimeout(()=>{nextButton.classList.add("is-hidden")},200);
-}
-else{
-    prevButton.classList.remove("is-hidden");
-    setTimeout(()=>{prevButton.style.opacity=("1");},200);
-    nextButton.classList.remove("is-hidden");
-    setTimeout(()=>{nextButton.style.opacity=("1");},200);
-}
+const buttonInactive = (prevButton, nextButton, slides, targetIndex) => {
+    if (targetIndex === 0) {
+        prevButton.style.opacity = ("0");
+        setTimeout(() => {
+            prevButton.classList.add("is-hidden");
+        }, 200)
+        nextButton.classList.remove("is-hidden");
+        nextButton.style.opacity = ("1");
+    } else if (targetIndex === slides.length - 1) {
+        prevButton.classList.remove("is-hidden");
+        nextButton.style.opacity = ("0");
+        setTimeout(() => {
+            nextButton.classList.add("is-hidden")
+        }, 200);
+    } else {
+        prevButton.classList.remove("is-hidden");
+        setTimeout(() => {
+            prevButton.style.opacity = ("1");
+        }, 200);
+        nextButton.classList.remove("is-hidden");
+        setTimeout(() => {
+            nextButton.style.opacity = ("1");
+        }, 200);
+    }
 }
 
 //-------right-click move
@@ -134,7 +157,7 @@ nextButton.addEventListener("click", e => {
 
     moveToSlide(carousel, currentSlide, nextSlide);
     dotNavUpdate(currentDot, nextDot);
-    buttonInactive(prevButton,nextButton,slides,nextIndex);
+    buttonInactive(prevButton, nextButton, slides, nextIndex);
 })
 
 //-------left-click move
@@ -147,44 +170,47 @@ prevButton.addEventListener("click", e => {
 
     moveToSlide(carousel, currentSlide, prevSlide);
     dotNavUpdate(currentDot, prevDot);
-    buttonInactive(prevButton,nextButton,slides,prevIndex);
+    buttonInactive(prevButton, nextButton, slides, prevIndex);
 })
 
 //--RightArrow key
-document.addEventListener("keydown", e=>{
+document.addEventListener("keydown", e => {
     const currentSlide = carousel.querySelector(".current-slide");
-    const currentIndex = slides.findIndex(slide=>slide===currentSlide);
-    if(e.key!=="ArrowRight"||currentIndex===slides.length - 1){return;}
-    else{
-        
+    const currentIndex = slides.findIndex(slide => slide === currentSlide);
+    if (e.key !== "ArrowRight" || currentIndex === slides.length - 1) {
+        return;
+    } else {
+
         const nextSlide = currentSlide.nextElementSibling;
         const currentDot = dotNav.querySelector(".active");
         const nextDot = currentDot.nextElementSibling;
         const nextIndex = slides.findIndex(slide => slide === nextSlide);
-    
+
         moveToSlide(carousel, currentSlide, nextSlide);
         dotNavUpdate(currentDot, nextDot);
-        buttonInactive(prevButton,nextButton,slides,nextIndex);
-    }}
-);
+        buttonInactive(prevButton, nextButton, slides, nextIndex);
+    }
+});
 
 //--LeftArrow key
-document.addEventListener("keydown", e=>{
+document.addEventListener("keydown", e => {
     const currentSlide = carousel.querySelector(".current-slide");
-    const currentIndex = slides.findIndex(slide=>slide===currentSlide);
-    if(e.key!=="ArrowLeft"||currentIndex===0){return;}
-    else{
-        
+    const currentIndex = slides.findIndex(slide => slide === currentSlide);
+    if (e.key !== "ArrowLeft" || currentIndex === 0) {
+        return;
+    } else {
+
         const currentSlide = carousel.querySelector(".current-slide");
         const prevSlide = currentSlide.previousElementSibling;
         const currentDot = dotNav.querySelector(".active");
         const prevDot = currentDot.previousElementSibling;
         const prevIndex = slides.findIndex(slide => slide === prevSlide);
-    
+
         moveToSlide(carousel, currentSlide, prevSlide);
         dotNavUpdate(currentDot, prevDot);
-        buttonInactive(prevButton,nextButton,slides,prevIndex);}}
-);
+        buttonInactive(prevButton, nextButton, slides, prevIndex);
+    }
+});
 
 //-------dot-nav move
 
@@ -200,5 +226,5 @@ dotNav.addEventListener("click", e => {
 
     moveToSlide(carousel, currentSlide, targetSlide);
     dotNavUpdate(currentDot, targetDot);
-    buttonInactive(prevButton,nextButton,slides,targetIndex);
+    buttonInactive(prevButton, nextButton, slides, targetIndex);
 })
