@@ -39,12 +39,11 @@ const menuAnimation = () => {
 const handleClick = () => {
     hamburger.classList.toggle("active");
     menu.classList.toggle("active");
-    //-->hide menu if area outside is clicked
+    //hide menu if area outside is clicked
     document.onclick = (e) => {
         if (menu.contains(e.target) || hamburger.contains(e.target)) {
             return
         } else {
-            document.onclick = null;
             hamburger.classList.remove("active");
             menu.classList.remove("active");
             for (let i = 0; i < listItem.length; i++) {
