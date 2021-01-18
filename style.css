@@ -3,7 +3,9 @@
     --white: #fff;
     --transparent: rgba(255, 255, 255, 0.6);
     --opacity: rgba(255, 255, 255, 0.7);
-    --error: #a3a3a3;
+    --disabled-bg: #e4e4e4;
+    --disabled: #858585;
+    --active: #11245a;
     --success: #8bbd00;
     scroll-behavior: smooth;
     font-size: 62.5%;
@@ -17,6 +19,7 @@
     list-style-type: none;
     text-decoration: none;
     outline: none;
+    color: var(--primary);
 }
 
 /*------------------------------------------------<700px-width--------------------------------------------------------------------*/
@@ -117,7 +120,6 @@ body {
 
 .header__menu-item {
     font-family: "Poppins", sans-serif;
-    color: var(--primary);
     font-size: 1.2rem;
     text-align: center;
     background-color: transparent;
@@ -298,7 +300,6 @@ body {
 
 .main__hero-header {
     font-family: "Poppins", sans-serif;
-    color: var(--primary);
     font-size: 3rem;
     opacity: 1;
     letter-spacing: 0.5em;
@@ -316,7 +317,6 @@ body {
 .main__hero-header::after {
     content: "Kopie &\00a0reprinty muzealne";
     font-family: "Poppins", sans-serif;
-    color: var(--primary);
     opacity: 0.5;
     font-size: 3rem;
     letter-spacing: 0.5em;
@@ -365,7 +365,6 @@ body {
 .main__article-title {
     font-family: "Poppins", sans-serif;
     font-size: clamp(2.2rem, 1.97rem + 0.5vw, 2.5rem);
-    color: var(--primary);
     text-transform: uppercase;
     text-align: left;
 }
@@ -398,7 +397,6 @@ body {
 .main__section-title {
     font-family: "Poppins", sans-serif;
     font-size: clamp(1.6rem, 0.25rem + 3vw, 1.8rem);
-    color: var(--primary);
     position: relative;
 }
 
@@ -417,7 +415,6 @@ body {
 .main__section-paragraph {
     font-family: "PT Sans", sans-serif;
     font-size: clamp(1.4rem, 0.05rem + 3vw, 1.6rem);
-    color: var(--primary);
     line-height: 150%;
     margin-bottom: 1em;
 }
@@ -724,29 +721,29 @@ body {
 .main__form-header {
     font-family: "Poppins", sans-serif;
     font-size: 2rem;
-    color: var(--primary);
     margin-bottom: 0.5em;
 }
 
 .main__form-input-container {
     position: relative;
-    margin: 1em 0;
+    margin: 1.2em 0;
 }
 
 .main__form-span--alert {
+    position:absolute;
+    left:0;
+    bottom:-1.4em;
     display: block;
     font-family: "PT Sans", sans-serif;
     color: rgb(197, 3, 3);
     font-size: 1.4rem;
     margin-top: 0.3em;
-    display:none;
 }
 
 .main__form-label {
     position: absolute;
     left: 20px;
     top: 0.2em;
-    color: var(--primary);
     font-size: 1.6rem;
     font-family: "Poppins", sans-serif;
     pointer-events: none;
@@ -763,7 +760,6 @@ body {
     border: 1px solid var(--primary);
     border-radius: 5px;
     padding: 0.3em;
-    color: var(--primary);
     font-size: 1.6rem;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
@@ -780,11 +776,11 @@ body {
     -ms-flex-item-align: end;
         align-self: flex-end;
     padding: 0.75em 1.5em;
-    background-color: var(--lightblue);
-    color: var(--darkblue);
+    background-color: var(--disabled-bg);
+    color:var(--disabled);
     outline: none;
     border: 2px solid transparent;
-    border-radius: 5px;
+    border-radius: 20px;
     letter-spacing: 0.05em;
     cursor: pointer;
     -webkit-transition: 0.5s;
@@ -795,6 +791,10 @@ body {
 .main__form-submit:hover {
     background-color: var(--primary);
     color: var(--white);
+}
+
+.main__form-submit:active {
+    background-color: var(--active);
 }
 
 .main__form-span {
@@ -926,7 +926,6 @@ body {
 
 .footer__copyright-header {
     font-family: "Poppins", sans-serif;
-    color: var(--primary);
     font-size: 1.7rem;
 
 }
@@ -966,7 +965,6 @@ body {
     position: relative;
     -ms-flex-item-align: center;
         align-self: center;
-    color: var(--primary);
     font-family: "PT Sans", sans-serif;
     font-style: normal;
     font-size: 1.2rem;
