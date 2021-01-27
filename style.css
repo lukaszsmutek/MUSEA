@@ -6,7 +6,9 @@
     --disabled-bg: #e4e4e4;
     --disabled: #858585;
     --active: #11245a;
-    --success: #8bbd00;
+    --secondary: #7e7e7e;
+    --success: #1c8894;
+    --failure: #941c68;
     scroll-behavior: smooth;
     font-size: 62.5%;
 }
@@ -350,8 +352,6 @@ body {
     padding: 7em 3em 0;
     position: relative;
 }
-
-
 
 .main__article--about {
     margin-top: 100vh;
@@ -726,19 +726,15 @@ body {
 
 .main__form-input-container {
     position: relative;
-    margin: 1.2em 0;
+    margin: 1.2em 0 0.3em;
 }
 
-.main__form-span--alert {
-    position:absolute;
-    left:0;
-    bottom:-1.4em;
-    display: block;
+.main__form-alert {
     font-family: "PT Sans", sans-serif;
+    display:inline-block;
     color: rgb(197, 3, 3);
-    font-size: 1.4rem;
-    margin-top: 0.3em;
-    display:none;
+    font-size: 1.2rem;
+    margin-top: 0.2em;
 }
 
 .main__form-label {
@@ -760,20 +756,32 @@ body {
     outline: none;
     border: 1px solid var(--primary);
     border-radius: 5px;
-    padding: 0.3em;
+    padding: 0.8em;
+    font-family:"PT Sans", sans-serif;
     font-size: 1.6rem;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
 }
 
-.main__form-input--textarea {
+.main__form-input--message {
     min-height: 150px;
     resize: none;
     overflow-y: auto;
 }
 
+.main__form-counter{
+    display:inline-block;
+    width:100%;
+    text-align:right;
+    font-family:"PT-Sans", sans-serif;
+    font-size:1.2rem;
+    margin: 0.5em 0;
+    color:var(--secondary);
+}
+
 .main__form-submit {
+    width:100%;
     -ms-flex-item-align: end;
         align-self: flex-end;
     padding: 0.75em 1.5em;
@@ -781,9 +789,10 @@ body {
     color:var(--disabled);
     outline: none;
     border: 2px solid transparent;
-    border-radius: 20px;
+    border-radius: 5px;
+    margin-top:1em;
     letter-spacing: 0.05em;
-    cursor: pointer;
+    cursor: none;
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
     transition: 0.5s;
@@ -856,6 +865,16 @@ body {
     opacity: 1;
 }
 
+.input__icon{
+    position:absolute;
+    width:15px;
+    height:15px;
+    right:-2em;
+    top:0;
+    margin-top:0.5em;
+    
+}
+
 /*--clients-icons-container-------------------------------------------------------------------------------------------------*/
 
 .main__clients {
@@ -885,7 +904,7 @@ body {
     height: 120px;
     background-color: transparent;
     cursor: pointer;
-    margin: 2em 2em;
+    margin: 2em auto;
     -webkit-transition: all 0.5s ease-in-out 0.1s;
     -o-transition: all 0.5s ease-in-out 0.1s;
     transition: all 0.5s ease-in-out 0.1s;

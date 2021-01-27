@@ -1,5 +1,6 @@
-//contact form
-const inputs = document.querySelectorAll(".main__form-input,.main__form-input--textarea");
+//contact form inputs animation
+const form = document.querySelector(".main__form");
+const inputs = Array.from(document.querySelectorAll(".main__form-input,.main__form-input--message"));
 
 function focusFunc() {
     let parent = this.parentNode;
@@ -18,14 +19,143 @@ inputs.forEach((input) => {
     input.addEventListener("blur", blurFunc);
 });
 
-//hamburger
+//contact form validation
+//--form-inputs
+const userName = form.querySelector(".main__form-input--name");
+const email = form.querySelector(".main__form-input--email");
+const subject = form.querySelector(".main__form-input--subject");
+const textMessage = form.querySelector(".main__form-input--message");
 
+//--functions
+const createAlert = (input, message) => {
+    const Alert = input.parentNode.querySelector(".main__form-alert");
+    Alert.innerHTML = message;
+}
+
+const resetAlert = (input) => {
+    const Alert = input.parentNode.querySelector(".main__form-alert");
+    Alert.innerHTML = "";
+    Alert.classList.add("is-hidden")
+}
+
+const showValidIcon = (input) => {
+    const validIcon = input.parentNode.querySelector(".input__icon--valid");
+    validIcon.classList.remove("is-hidden")
+}
+
+const hideValidIcon = (input) => {
+    const validIcon = input.parentNode.querySelector(".input__icon--valid");
+    validIcon.classList.add("is-hidden");
+}
+
+const showInvalidIcon = (input) => {
+    const invalidIcon = input.parentNode.querySelector(".input__icon--invalid");
+    invalidIcon.classList.remove("is-hidden");
+}
+
+const hideInvalidIcon = (input) => {
+    const invalidIcon = input.parentNode.querySelector(".input__icon--invalid");
+    invalidIcon.classList.add("is-hidden");
+}
+
+const setValid =(input)=>{
+    hideInvalidIcon(input);
+    showValidIcon(input);
+    resetAlert(input);
+}
+
+const setInvalid =(input, message)=>{
+    hideValidIcon(input);
+    showInvalidIcon(input);
+    createAlert(input, message)
+}
+
+const isEmpty = (value) => {
+    if (value === "") return true;
+    return false;
+}
+
+const checkIfEmpty = (input, message) => {
+    if (isEmpty(input.value.trim())) {
+        setInvalid(input, message);
+        return true;
+    } else {
+        setValid(input);
+        return false;
+    }
+}
+
+const checkIfOnlyLetters =(input, message)=>{
+    if (/^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ ]+$/.test(input.value)){
+        setValid(input);
+        return true;
+    }else{
+        setInvalid(input, message);
+        return false;
+    }
+}
+
+const checkEmailSyntax = (input, message) => {
+    if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(input.value)){
+        setValid(input);
+        return true;
+    }else{
+        setInvalid(input, message);
+        return false;
+    }
+};
+
+const TextLengthCounter = (input) => {
+    const textLength=input.value.length;
+    const maxLength=input.maxLength;
+    const counter = form.querySelector(".main__form-counter");
+    counter.innerHTML=`${textLength}/${maxLength}`;
+};
+
+//--validate-inputs
+const validateUserName = () => {
+    if(checkIfEmpty(userName, "To pole nie może być puste")) return;
+    if(!checkIfOnlyLetters(userName, "To pole może zawierać tylko litery")) return;
+    return true;
+};
+
+const validateEmail = () => {
+    if(checkIfEmpty(email, "To pole nie może być puste")) return;
+    if(checkEmailSyntax(email,"Wpisz poprawny adres e-mail")) return;
+    return true;
+};
+
+const validateSubject = () => {
+    if(checkIfEmpty(subject, "To pole nie może być puste")) return;
+    return true;
+}
+const validateTextMessage = () => {
+    if(checkIfEmpty(textMessage, "To pole nie może być puste")) return;
+    return true;
+};
+
+//--event-listeners
+userName.addEventListener("input", (e)=>{validateUserName();});
+userName.addEventListener("focusout", (e)=>{if (isEmpty(userName.value.trim())) {setInvalid(userName, "To pole nie może być puste");return}});
+email.addEventListener("input", (e)=>{validateEmail()});
+email.addEventListener("focusout", (e)=>{if (isEmpty(email.value.trim())) {setInvalid(email, "To pole nie może być puste");return}});
+subject.addEventListener("input", (e)=>{validateSubject();});
+subject.addEventListener("focusout", (e)=>{if (isEmpty(subject.value.trim())) {setInvalid(subject, "To pole nie może być puste");return}});
+textMessage.addEventListener("focusout", (e)=>{if (isEmpty(textMessage.value.trim())) {setInvalid(textMessage, "To pole nie może być puste");return}});
+textMessage.addEventListener("input", (e)=>{validateTextMessage();});
+textMessage.addEventListener("keyup", e=>{TextLengthCounter(textMessage);})
+
+//hamburger
 const hamburger = document.querySelector(".header__hamburger-container");
 const menu = document.querySelector(".header__menu-container");
 const listItems = document.querySelector(".header__menu");
 const listItem = document.querySelectorAll(".header__menu-item-wrapper");
-const showMenu = (i)=> {listItem[i].style.transform = ("translateY(" + [i] * 50 + "px)");}
-const hideMenu = (i)=>{ listItem[i].style.transform = ("");}
+const showMenu = (i) => {
+    listItem[i].style.transform = ("translateY(" + [i] * 50 + "px)");
+}
+const hideMenu = (i) => {
+    listItem[i].style.transform = ("");
+}
 const menuAnimation = () => {
     for (let i = 0; i < listItem.length; i++) {
         if (listItem[i].style.transform === ("")) {
@@ -47,8 +177,8 @@ const handleClick = () => {
             hamburger.classList.remove("active");
             menu.classList.remove("active");
             for (let i = 0; i < listItem.length; i++) {
-                    hideMenu(i);
-                }
+                hideMenu(i);
+            }
         }
     }
     menuAnimation();
@@ -58,7 +188,6 @@ const handleClick = () => {
 hamburger.addEventListener('click', handleClick);
 
 //social media scroll
-
 const container = document.querySelector(".social-media__icons");
 const visible = () => {
     container.classList.remove("scroll");
@@ -73,7 +202,6 @@ const invisible = () => {
 window.addEventListener('scroll', invisible, false)
 
 //hero header scroll
-
 const header = document.querySelector(".main__hero-header");
 window.addEventListener("scroll", function () {
     let value = window.scrollY;
@@ -83,7 +211,6 @@ window.addEventListener("scroll", function () {
 });
 
 //gallery-carousel
-
 const carousel = document.querySelector(".main__gallery-carousel");
 const slides = Array.from(carousel.children);
 const nextButton = document.querySelector(".main__gallery-btn-container--next");
@@ -92,14 +219,13 @@ const dotNav = document.querySelector(".main__gallery-nav");
 const dots = Array.from(dotNav.children);
 const carouselWidth = carousel.getBoundingClientRect().width;
 
-//organizing slides in the row
+//--organizing slides in the row
 const slidePosition = (slide, index) => {
     slide.style.left = carouselWidth * index + "px";
 }
 slides.forEach(slidePosition);
 
 //--move to slide
-
 const moveToSlide = (carousel, currentSlide, targetSlide) => {
     if (targetSlide != null) {
         carousel.style.transform = "translateX(-" + targetSlide.style.left + ")";
@@ -109,7 +235,6 @@ const moveToSlide = (carousel, currentSlide, targetSlide) => {
 }
 
 //--dot-nav update
-
 const dotNavUpdate = (currentDot, targetDot) => {
     if (targetDot != null) {
         currentDot.classList.remove("active");
@@ -117,9 +242,7 @@ const dotNavUpdate = (currentDot, targetDot) => {
     }
 }
 
-//--button active/inactive 
-//opacity manipulation and setTimeout functions used for smooth transitions
-
+//--button active/inactive (opacity manipulation and setTimeout functions used for smooth transitions)
 const buttonInactive = (prevButton, nextButton, slides, targetIndex) => {
     if (targetIndex === 0) {
         prevButton.style.opacity = ("0");
@@ -211,8 +334,7 @@ document.addEventListener("keydown", e => {
     }
 });
 
-//-------dot-nav move
-
+//--dot-nav move
 dotNav.addEventListener("click", e => {
     const targetDot = e.target.closest('button');
 
