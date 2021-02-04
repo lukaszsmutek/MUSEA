@@ -25,22 +25,25 @@ const userName = form.querySelector(".main__form-input--name");
 const email = form.querySelector(".main__form-input--email");
 const subject = form.querySelector(".main__form-input--subject");
 const textMessage = form.querySelector(".main__form-input--message");
+const submit = form.querySelector(".main__form-submit");
 
 //--functions
 const createAlert = (input, message) => {
     const Alert = input.parentNode.querySelector(".main__form-alert");
-    Alert.innerHTML = message;
+    Alert.innerHTML=message;
 }
 
 const resetAlert = (input) => {
     const Alert = input.parentNode.querySelector(".main__form-alert");
     Alert.innerHTML = "";
-    Alert.classList.add("is-hidden")
+    Alert.classList.add("is-hidden");
+    return;
 }
 
 const showValidIcon = (input) => {
     const validIcon = input.parentNode.querySelector(".input__icon--valid");
-    validIcon.classList.remove("is-hidden")
+    validIcon.classList.remove("is-hidden");
+    return;
 }
 
 const hideValidIcon = (input) => {
@@ -58,92 +61,48 @@ const hideInvalidIcon = (input) => {
     invalidIcon.classList.add("is-hidden");
 }
 
-const setValid =(input)=>{
+const setValid = (input) => {
     hideInvalidIcon(input);
     showValidIcon(input);
     resetAlert(input);
 }
 
-const setInvalid =(input, message)=>{
+const setInvalid = (input, message) => {
     hideValidIcon(input);
     showInvalidIcon(input);
-    createAlert(input, message)
+    createAlert(input, message);
 }
 
-const isEmpty = (value) => {
-    if (value === "") return true;
-    return false;
-}
+const validateInput = (input) =>{if(input.validity.valueMissing){
+setInvalid(input,"To pole nie może być puste");return;
+}else if(input.validity.patternMismatch){setInvalid(input, "To pole może zawierać tylko litery");return;}
+else if(input.validity.typeMismatch){setInvalid(input, "Wpisz prawidłowy adres email");return;}
+else{setValid(input);}}
 
-const checkIfEmpty = (input, message) => {
-    if (isEmpty(input.value.trim())) {
-        setInvalid(input, message);
-        return true;
-    } else {
-        setValid(input);
-        return false;
-    }
-}
 
-const checkIfOnlyLetters =(input, message)=>{
-    if (/^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ ]+$/.test(input.value)){
-        setValid(input);
-        return true;
-    }else{
-        setInvalid(input, message);
-        return false;
-    }
-}
+const validateForm = () =>{}
 
-const checkEmailSyntax = (input, message) => {
-    if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(input.value)){
-        setValid(input);
-        return true;
-    }else{
-        setInvalid(input, message);
-        return false;
-    }
-};
 
+
+userName.addEventListener("input",()=>{validateInput(userName);})
+userName.addEventListener("focusout",()=>{validateInput(userName);})
+email.addEventListener("input",()=>{validateInput(email);})
+email.addEventListener("focusout",()=>{validateInput(email);})
+subject.addEventListener("input",()=>{validateInput(subject);})
+subject.addEventListener("focusout",()=>{validateInput(subject);})
+textMessage.addEventListener("input",()=>{validateInput(textMessage);})
+textMessage.addEventListener("focusout",()=>{validateInput(textMessage);})
+
+//--------textarea-character-counter
 const TextLengthCounter = (input) => {
-    const textLength=input.value.length;
-    const maxLength=input.maxLength;
+    const textLength = input.value.length;
+    const maxLength = input.maxLength;
     const counter = form.querySelector(".main__form-counter");
-    counter.innerHTML=`${textLength}/${maxLength}`;
-};
-
-//--validate-inputs
-const validateUserName = () => {
-    if(checkIfEmpty(userName, "To pole nie może być puste")) return;
-    if(!checkIfOnlyLetters(userName, "To pole może zawierać tylko litery")) return;
-    return true;
-};
-
-const validateEmail = () => {
-    if(checkIfEmpty(email, "To pole nie może być puste")) return;
-    if(checkEmailSyntax(email,"Wpisz poprawny adres e-mail")) return;
-    return true;
-};
-
-const validateSubject = () => {
-    if(checkIfEmpty(subject, "To pole nie może być puste")) return;
-    return true;
+    counter.innerHTML = `${textLength}/${maxLength}`;
 }
-const validateTextMessage = () => {
-    if(checkIfEmpty(textMessage, "To pole nie może być puste")) return;
-    return true;
-};
 
-//--event-listeners
-userName.addEventListener("input", (e)=>{validateUserName();});
-userName.addEventListener("focusout", (e)=>{if (isEmpty(userName.value.trim())) {setInvalid(userName, "To pole nie może być puste");return}});
-email.addEventListener("input", (e)=>{validateEmail()});
-email.addEventListener("focusout", (e)=>{if (isEmpty(email.value.trim())) {setInvalid(email, "To pole nie może być puste");return}});
-subject.addEventListener("input", (e)=>{validateSubject();});
-subject.addEventListener("focusout", (e)=>{if (isEmpty(subject.value.trim())) {setInvalid(subject, "To pole nie może być puste");return}});
-textMessage.addEventListener("focusout", (e)=>{if (isEmpty(textMessage.value.trim())) {setInvalid(textMessage, "To pole nie może być puste");return}});
-textMessage.addEventListener("input", (e)=>{validateTextMessage();});
-textMessage.addEventListener("keyup", e=>{TextLengthCounter(textMessage);})
+textMessage.addEventListener("keyup", () => {TextLengthCounter(textMessage);})
+
 
 //hamburger
 const hamburger = document.querySelector(".header__hamburger-container");
