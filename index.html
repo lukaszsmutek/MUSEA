@@ -233,13 +233,13 @@ mail($to,$messageSubject, $body);
                     <h2 class="main__contact-title">Bądźmy w&nbsp;kontakcie</h2>
                     <div class="main__contact-content">
                         <div class="main__contact-icon-container">
-                            <img src="./components/icons/contact/phone.svg" alt="phone" class="main__contact-icon">
+                            <img src="./components/icons/contact/phone.svg" alt="phone-icon" class="main__contact-icon">
                             <a href="tel:795-057-442" class="main__contact-anchor">
                                 <span class="main__contact-span">795-057-442</span>
                             </a>
                         </div>
                         <div class="main__contact-icon-container">
-                            <img src="./components/icons/contact/mail.svg" alt="mail" class="main__contact-icon">
+                            <img src="./components/icons/contact/mail.svg" alt="mail-icon" class="main__contact-icon">
                             <a href=”mailto:contact@musea.pl” target=”_blank” rel="noopener noreferrer"
                                 class="main__contact-anchor">
                                 <span class="main__contact-span">kontakt@musea.pl</span>
@@ -249,10 +249,10 @@ mail($to,$messageSubject, $body);
                 </div>
 
                 <div class="main__contact-form-container">
-                    <form action="index.php" method="POST" class="main__form">
+                    <form action="index.php" method="POST" class="main__form" novalidate>
                         <h2 class="main__form-header">Napisz do nas</h2>
                         <div class="main__form-input-container">
-                            <input type="text" name="name" class="main__form-input main__form-input--name">
+                            <input type="text" name="name" class="main__form-input main__form-input--name"  pattern="[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ ]{1,}$" maxlength="50" required>
                             <img src="./components/icons/validation/valid.svg" alt="valid input" class="input__icon input__icon--valid is-hidden">
                             <img src="./components/icons/validation/invalid.svg" alt="invalid input" class="input__icon input__icon--invalid is-hidden">
                             <label for="name" class="main__form-label">Imię</label>
@@ -260,7 +260,7 @@ mail($to,$messageSubject, $body);
                             <span class="main__form-alert"></span>
                         </div>
                         <div class="main__form-input-container">
-                            <input type="email" name="email" class="main__form-input main__form-input--email">
+                            <input type="email" name="email" class="main__form-input main__form-input--email" maxlength="255" required>
                             <img src="./components/icons/validation/valid.svg" alt="valid input" class="input__icon input__icon--valid is-hidden">
                             <img src="./components/icons/validation/invalid.svg" alt="invalid input" class="input__icon input__icon--invalid is-hidden">
                             <label for="email" class="main__form-label"> Email</label>
@@ -268,7 +268,7 @@ mail($to,$messageSubject, $body);
                             <span class="main__form-alert"></span>
                         </div>
                         <div class="main__form-input-container">
-                            <input type="text" name="subject" class="main__form-input main__form-input--subject">
+                            <input type="text" name="subject" class="main__form-input main__form-input--subject" maxlength="200" required>
                             <img src="./components/icons/validation/valid.svg" alt="valid input" class="input__icon input__icon--valid is-hidden">
                             <img src="./components/icons/validation/invalid.svg" alt="invalid input" class="input__icon input__icon--invalid is-hidden">
                             <label for="subject" class="main__form-label">Temat</label>
@@ -276,7 +276,7 @@ mail($to,$messageSubject, $body);
                             <span class="main__form-alert"></span>
                         </div>
                         <div class="main__form-input-container">
-                            <textarea name="message" class="main__form-input main__form-input--message" maxlength="1000"></textarea>
+                            <textarea name="message" class="main__form-input main__form-input--message" maxlength="1000" required></textarea>
                             <img src="./components/icons/validation/valid.svg" alt="valid input" class="input__icon input__icon--valid is-hidden">
                             <img src="./components/icons/validation/invalid.svg" alt="invalid input" class="input__icon input__icon--invalid is-hidden">
                             <label for="message" class="main__form-label">Wiadomość</label>
