@@ -1,21 +1,3 @@
-<!--PHP-->
-<?php
-$userName=$_POST['name'];
-$email=$_POST['email'];
-$messageSubject = $_POST['subject'];
-$message = $_POST ['message'];
-
-$to = "musea@musea.pl";
-$body="";
-
-$body .= "From: ".$userName. "\r\n";
-$body .= "Email: ".$email. "\r\n";
-$body .= "Message: ".$message. "\r\n";
-
-mail($to,$messageSubject, $body);
-
-?>
-
 <!--HTML-->
 <!DOCTYPE html>
 <html lang="pl">

@@ -1,5 +1,6 @@
 //contact form inputs animation
 const form = document.querySelector(".main__form");
+console.log(form);
 const inputs = Array.from(document.querySelectorAll(".main__form-input,.main__form-input--message"));
 
 function focusFunc() {
@@ -30,7 +31,7 @@ const submit = form.querySelector(".main__form-submit");
 //--functions
 const createAlert = (input, message) => {
     const Alert = input.parentNode.querySelector(".main__form-alert");
-    Alert.innerHTML=message;
+    Alert.innerHTML = message;
 }
 
 const resetAlert = (input) => {
@@ -73,25 +74,68 @@ const setInvalid = (input, message) => {
     createAlert(input, message);
 }
 
-const validateInput = (input) =>{if(input.validity.valueMissing){
-setInvalid(input,"To pole nie może być puste");return;
-}else if(input.validity.patternMismatch){setInvalid(input, "To pole może zawierać tylko litery");return;}
-else if(input.validity.typeMismatch){setInvalid(input, "Wpisz prawidłowy adres email");return;}
-else{setValid(input);}}
+const validateInput = (input) => {
+    if (input.validity.valueMissing) {
+        setInvalid(input, "To pole nie może być puste");
+        return;
+    } else if (input.validity.patternMismatch) {
+        setInvalid(input, "To pole może zawierać tylko litery");
+        return;
+    } else if (input.validity.typeMismatch) {
+        setInvalid(input, "Wpisz prawidłowy adres email");
+        return;
+    } else {
+        setValid(input);
+    }
+}
+
+userName.addEventListener("input", () => {
+    validateInput(userName);
+})
+userName.addEventListener("focusout", () => {
+    validateInput(userName);
+})
+email.addEventListener("input", () => {
+    validateInput(email);
+})
+email.addEventListener("focusout", () => {
+    validateInput(email);
+})
+subject.addEventListener("input", () => {
+    validateInput(subject);
+})
+subject.addEventListener("focusout", () => {
+    validateInput(subject);
+})
+textMessage.addEventListener("input", () => {
+    validateInput(textMessage);
+})
+textMessage.addEventListener("focusout", () => {
+    validateInput(textMessage);
+})
+
+const validateForm = () => {
+    
+    if (form.checkValidity()) {
+    //if all fields are valid, set submit style to active
+        submit.classList.add("main__form-submit--active");
+        return;
+    //if any field is invalid, set submit style to inactive
+    } else {
+        submit.classList.remove("main__form-submit--active");
+    } 
+}
+
+form.addEventListener("input", () => {
+validateForm();
+})
+form.addEventListener("submit", (event)=>{
+    if(!form.checkValidity()){
+        event.preventDefault();
+    }
+})
 
 
-const validateForm = () =>{}
-
-
-
-userName.addEventListener("input",()=>{validateInput(userName);})
-userName.addEventListener("focusout",()=>{validateInput(userName);})
-email.addEventListener("input",()=>{validateInput(email);})
-email.addEventListener("focusout",()=>{validateInput(email);})
-subject.addEventListener("input",()=>{validateInput(subject);})
-subject.addEventListener("focusout",()=>{validateInput(subject);})
-textMessage.addEventListener("input",()=>{validateInput(textMessage);})
-textMessage.addEventListener("focusout",()=>{validateInput(textMessage);})
 
 //--------textarea-character-counter
 const TextLengthCounter = (input) => {
@@ -101,7 +145,9 @@ const TextLengthCounter = (input) => {
     counter.innerHTML = `${textLength}/${maxLength}`;
 }
 
-textMessage.addEventListener("keyup", () => {TextLengthCounter(textMessage);})
+textMessage.addEventListener("keyup", () => {
+    TextLengthCounter(textMessage);
+})
 
 
 //hamburger

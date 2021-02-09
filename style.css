@@ -792,19 +792,15 @@ body {
     border-radius: 5px;
     margin-top:1em;
     letter-spacing: 0.05em;
-    cursor: none;
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
     transition: 0.5s;
 }
 
-.main__form-submit:hover {
+.main__form-submit--active {
     background-color: var(--primary);
     color: var(--white);
-}
-
-.main__form-submit:active {
-    background-color: var(--active);
+    cursor:pointer;
 }
 
 .main__form-span {
