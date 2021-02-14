@@ -1,25 +1,29 @@
-<!--PHP-->
-<?php
-$userName=$_POST['name'];
-$email=$_POST['email'];
-$messageSubject = $_POST['subject'];
-$message = $_POST ['message'];
+<?php 
+    if(isset($_POST['submit'])){
+        $userName=$_POST['name'];
+        $email=$_POST['email'];
+        $messageSubject = $_POST['subject'];
+        $message = $_POST ['message'];
+        $message = wordwrap($message, 70, "\r\n");
+        $mailTo = "musea@musea.pl";
+        $headers = "From: musea@musea.pl\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\n";
+        $headers .= 'X-Mailer: PHP/' . phpversion();
+        $headers .= "X-Priority: 1\n"; // Urgent message!
+        $headers .= "Return-Path: musea@musea.pl\n"; // Return path for errors
+        $headers .= "MIME-Version: 1.0\r\n";
 
-$to = "musea@musea.pl";
-$body="";
+        $txt = "Masz nową wiadomość od ".$userName.".\n\n".$message.".\n\n Odpowiedz wysyłając wiadomość na: ".$email;
 
-$body .= "From: ".$userName. "\r\n";
-$body .= "Email: ".$email. "\r\n";
-$body .= "Message: ".$message. "\r\n";
+        mb_internal_encoding('UTF-8');
+        $encoded_subject = mb_encode_mimeheader($messageSubject, 'UTF-8', 'B', "\r\n", strlen('Subject: '));
 
-mail($to,$messageSubject, $body);
-
+        mail($mailTo, $encoded_subject, $txt, $headers);
+    }
 ?>
 
-<!--HTML-->
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,15 +34,15 @@ mail($to,$messageSubject, $body);
     <meta name="copyright" content="Lukasz Smutek">
     <meta http-equiv="expires" content="43200">
     <!--favicons-->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="16x16"
-        href="./components/icons/favicons/favicon.ico">
+        href="/components/icons/favicons/favicon.ico">
     <!--fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital@0;1&family=Poppins:wght@600&display=swap"
         rel="stylesheet">
     <!--stylesheet-->
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="./style.css" type="text/css">
 </head>
 
 <body>
@@ -74,9 +78,11 @@ mail($to,$messageSubject, $body);
         <main class="main">
             <!--hero-->
             <div class="main__hero">
-                <h1 class="main__hero-header">
-                    Kopie &&nbsp;reprinty muzealne
-                </h1>
+                <div class="main__hero-content-container">
+                    <h1 class="main__hero-header">
+                        Kopie &&nbsp;reprinty muzealne
+                    </h1>
+                </div>
             </div>
             <!--about-->
             <div class="main__articles">
@@ -233,14 +239,14 @@ mail($to,$messageSubject, $body);
                     <h2 class="main__contact-title">Bądźmy w&nbsp;kontakcie</h2>
                     <div class="main__contact-content">
                         <div class="main__contact-icon-container">
-                            <img src="./components/icons/contact/phone.svg" alt="phone" class="main__contact-icon">
+                            <img src="./components/icons/contact/phone.svg" alt="phone-icon" class="main__contact-icon">
                             <a href="tel:795-057-442" class="main__contact-anchor">
                                 <span class="main__contact-span">795-057-442</span>
                             </a>
                         </div>
                         <div class="main__contact-icon-container">
-                            <img src="./components/icons/contact/mail.svg" alt="mail" class="main__contact-icon">
-                            <a href=”mailto:contact@musea.pl” target=”_blank” rel="noopener noreferrer"
+                            <img src="./components/icons/contact/mail.svg" alt="mail-icon" class="main__contact-icon">
+                            <a href=”mailto:musea@musea.pl” target=”_blank” rel="noopener noreferrer"
                                 class="main__contact-anchor">
                                 <span class="main__contact-span">kontakt@musea.pl</span>
                             </a>
@@ -249,32 +255,42 @@ mail($to,$messageSubject, $body);
                 </div>
 
                 <div class="main__contact-form-container">
-                    <form action="index.php" method="POST" class="main__form">
+                    <form action="index.php" method="POST" class="main__form" novalidate>
                         <h2 class="main__form-header">Napisz do nas</h2>
                         <div class="main__form-input-container">
-                            <input type="text" name="name" class="main__form-input main__form-input--name">
+                            <input type="text" name="name" class="main__form-input main__form-input--name"  pattern="[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ ]{1,}$" maxlength="50" required>
+                            <img src="./components/icons/validation/valid.svg" alt="valid input" class="input__icon input__icon--valid is-hidden">
+                            <img src="./components/icons/validation/invalid.svg" alt="invalid input" class="input__icon input__icon--invalid is-hidden">
                             <label for="name" class="main__form-label">Imię</label>
                             <span class="main__form-span">Imię</span>
-                            <span class="main__form-span--alert">Wpisz swoje imię</span>
+                            <span class="main__form-alert"></span>
                         </div>
                         <div class="main__form-input-container">
-                            <input type="email" name="email" class="main__form-input main__form-input--email" required>
+                            <input type="email" name="email" class="main__form-input main__form-input--email" maxlength="255" required>
+                            <img src="./components/icons/validation/valid.svg" alt="valid input" class="input__icon input__icon--valid is-hidden">
+                            <img src="./components/icons/validation/invalid.svg" alt="invalid input" class="input__icon input__icon--invalid is-hidden">
                             <label for="email" class="main__form-label"> Email</label>
                             <span class="main__form-span">Email</span>
-                            <span class="main__form-span--alert">Wpisz poprawny adres email</span>
+                            <span class="main__form-alert"></span>
                         </div>
                         <div class="main__form-input-container">
-                            <input type="text" name="subject" class="main__form-input">
+                            <input type="text" name="subject" class="main__form-input main__form-input--subject" maxlength="200" required>
+                            <img src="./components/icons/validation/valid.svg" alt="valid input" class="input__icon input__icon--valid is-hidden">
+                            <img src="./components/icons/validation/invalid.svg" alt="invalid input" class="input__icon input__icon--invalid is-hidden">
                             <label for="subject" class="main__form-label">Temat</label>
                             <span class="main__form-span">Temat</span>
+                            <span class="main__form-alert"></span>
                         </div>
                         <div class="main__form-input-container">
-                            <textarea name="message" class="main__form-input main__form-input--textarea"></textarea>
+                            <textarea name="message" class="main__form-input main__form-input--message" maxlength="1000" required></textarea>
+                            <img src="./components/icons/validation/valid.svg" alt="valid input" class="input__icon input__icon--valid is-hidden">
+                            <img src="./components/icons/validation/invalid.svg" alt="invalid input" class="input__icon input__icon--invalid is-hidden">
                             <label for="message" class="main__form-label">Wiadomość</label>
                             <span class="main__form-span">Wiadomość</span>
-                            <span class="main__form-span--alert">Wpisz treść wiadomości</span>
+                            <span class="main__form-counter"></span>
+                            <span class="main__form-alert"></span>
                         </div>
-                        <input type="submit" value="Wyślij" class="main__form-submit">
+                        <input type="submit" value="Wyślij" name="submit" class="main__form-submit">
                     </form>
                 </div>
             </article>
@@ -283,8 +299,6 @@ mail($to,$messageSubject, $body);
                     <h5 class="main__article-title">Nasi klienci</h5>
                     <div class="clients__icons-container">
                         <ul class="clients__icons">
-                            <li class="clients__icon"><img src="./components/images/nbp.svg"
-                                    alt="Centrum Pieniądza Polskiego NBP" title=""></li>
                             <li class="clients__icon"><img src="./components/images/ms.svg" alt="Muzeum Śląskie"
                                     title="">
                             </li>
@@ -323,7 +337,7 @@ mail($to,$messageSubject, $body);
                     </ul>
                     <ul class="company-info__contact">
                         <li>tel: <a href="tel:+48 795-057-442">+48 795-057-442</a></li>
-                        <li>e-mail: <a href=”mailto:contact@musea.pl” target=”_blank” rel=noopener
+                        <li>e-mail: <a href=”mailto:musea@musea.pl” target=”_blank” rel=noopener
                                 noreferrer””>contact@musea.pl</a></li>
                     </ul>
                     <ul class="company-info__payments">
@@ -340,7 +354,7 @@ mail($to,$messageSubject, $body);
         </footer>
     </div>
     <!--scripts-------------------------------------------->
-    <script src="./script.js"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>

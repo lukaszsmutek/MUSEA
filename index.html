@@ -1,7 +1,29 @@
-<!--HTML-->
+<?php 
+    if(isset($_POST['submit'])){
+        $userName=$_POST['name'];
+        $email=$_POST['email'];
+        $messageSubject = $_POST['subject'];
+        $message = $_POST ['message'];
+        $message = wordwrap($message, 70, "\r\n");
+        $mailTo = "musea@musea.pl";
+        $headers = "From: musea@musea.pl\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\n";
+        $headers .= 'X-Mailer: PHP/' . phpversion();
+        $headers .= "X-Priority: 1\n"; // Urgent message!
+        $headers .= "Return-Path: musea@musea.pl\n"; // Return path for errors
+        $headers .= "MIME-Version: 1.0\r\n";
+
+        $txt = "Masz nową wiadomość od ".$userName.".\n\n".$message.".\n\n Odpowiedz wysyłając wiadomość na: ".$email;
+
+        mb_internal_encoding('UTF-8');
+        $encoded_subject = mb_encode_mimeheader($messageSubject, 'UTF-8', 'B', "\r\n", strlen('Subject: '));
+
+        mail($mailTo, $encoded_subject, $txt, $headers);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,15 +34,15 @@
     <meta name="copyright" content="Lukasz Smutek">
     <meta http-equiv="expires" content="43200">
     <!--favicons-->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="16x16"
-        href="./components/icons/favicons/favicon.ico">
+        href="/components/icons/favicons/favicon.ico">
     <!--fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital@0;1&family=Poppins:wght@600&display=swap"
         rel="stylesheet">
     <!--stylesheet-->
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="./style.css" type="text/css">
 </head>
 
 <body>
@@ -56,9 +78,11 @@
         <main class="main">
             <!--hero-->
             <div class="main__hero">
-                <h1 class="main__hero-header">
-                    Kopie &&nbsp;reprinty muzealne
-                </h1>
+                <div class="main__hero-content-container">
+                    <h1 class="main__hero-header">
+                        Kopie &&nbsp;reprinty muzealne
+                    </h1>
+                </div>
             </div>
             <!--about-->
             <div class="main__articles">
@@ -222,7 +246,7 @@
                         </div>
                         <div class="main__contact-icon-container">
                             <img src="./components/icons/contact/mail.svg" alt="mail-icon" class="main__contact-icon">
-                            <a href=”mailto:contact@musea.pl” target=”_blank” rel="noopener noreferrer"
+                            <a href=”mailto:musea@musea.pl” target=”_blank” rel="noopener noreferrer"
                                 class="main__contact-anchor">
                                 <span class="main__contact-span">kontakt@musea.pl</span>
                             </a>
@@ -266,7 +290,7 @@
                             <span class="main__form-counter"></span>
                             <span class="main__form-alert"></span>
                         </div>
-                        <input type="submit" value="Wyślij" class="main__form-submit">
+                        <input type="submit" value="Wyślij" name="submit" class="main__form-submit">
                     </form>
                 </div>
             </article>
@@ -275,8 +299,6 @@
                     <h5 class="main__article-title">Nasi klienci</h5>
                     <div class="clients__icons-container">
                         <ul class="clients__icons">
-                            <li class="clients__icon"><img src="./components/images/nbp.svg"
-                                    alt="Centrum Pieniądza Polskiego NBP" title=""></li>
                             <li class="clients__icon"><img src="./components/images/ms.svg" alt="Muzeum Śląskie"
                                     title="">
                             </li>
@@ -315,7 +337,7 @@
                     </ul>
                     <ul class="company-info__contact">
                         <li>tel: <a href="tel:+48 795-057-442">+48 795-057-442</a></li>
-                        <li>e-mail: <a href=”mailto:contact@musea.pl” target=”_blank” rel=noopener
+                        <li>e-mail: <a href=”mailto:musea@musea.pl” target=”_blank” rel=noopener
                                 noreferrer””>contact@musea.pl</a></li>
                     </ul>
                     <ul class="company-info__payments">
@@ -332,7 +354,7 @@
         </footer>
     </div>
     <!--scripts-------------------------------------------->
-    <script src="./script.js"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>
