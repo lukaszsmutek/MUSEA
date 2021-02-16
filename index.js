@@ -1,6 +1,5 @@
 //contact form inputs animation
 const form = document.querySelector(".main__form");
-console.log(form);
 const inputs = Array.from(document.querySelectorAll(".main__form-input,.main__form-input--message"));
 
 function focusFunc() {
@@ -135,8 +134,6 @@ form.addEventListener("submit", (event)=>{
     }
 })
 
-
-
 //--------textarea-character-counter
 const TextLengthCounter = (input) => {
     const textLength = input.value.length;
@@ -149,7 +146,6 @@ textMessage.addEventListener("keyup", () => {
     TextLengthCounter(textMessage);
 })
 
-
 //hamburger
 const hamburger = document.querySelector(".header__hamburger-container");
 const menu = document.querySelector(".header__menu-container");
@@ -157,6 +153,7 @@ const listItems = document.querySelector(".header__menu");
 const listItem = document.querySelectorAll(".header__menu-item-wrapper");
 const showMenu = (i) => {
     listItem[i].style.transform = ("translateY(" + [i] * 50 + "px)");
+    
 }
 const hideMenu = (i) => {
     listItem[i].style.transform = ("");
@@ -186,11 +183,42 @@ const handleClick = () => {
             }
         }
     }
+    if (menu.classList.contains("active")){menu.style.height= listItem.length*55 + "px"} else {menu.style.height=""};
     menuAnimation();
-
 }
 
 hamburger.addEventListener('click', handleClick);
+
+//article-content baseline animation
+
+const baselineAnimation =()=>{
+    var elements;
+    var windowHeight;
+  
+    function init() {
+      elements = document.querySelectorAll(".main__article-content");
+      windowHeight = window.innerHeight;
+    }
+  
+    function checkPosition() {
+      for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+        var positionFromTop = elements[i].getBoundingClientRect().top;
+  
+        if (positionFromTop - windowHeight <= 0-(elements[i].getBoundingClientRect().height)) {
+          element.classList.add("baseline");
+        }
+      }
+    }
+  
+    window.addEventListener('scroll', checkPosition);
+    window.addEventListener('resize', init);
+  
+    init();
+    checkPosition();
+  };
+
+  baselineAnimation();
 
 //social media scroll
 const container = document.querySelector(".social-media__icons");
