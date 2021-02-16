@@ -168,6 +168,8 @@ const menuAnimation = () => {
     }
 }
 
+const setMenuHeight = () =>{ if (menu.classList.contains("active")){menu.style.height= listItem.length*55 + "px"} else {menu.style.height=""};}
+
 const handleClick = () => {
     hamburger.classList.toggle("active");
     menu.classList.toggle("active");
@@ -181,16 +183,16 @@ const handleClick = () => {
             for (let i = 0; i < listItem.length; i++) {
                 hideMenu(i);
             }
+            setMenuHeight()
         }
     }
-    if (menu.classList.contains("active")){menu.style.height= listItem.length*55 + "px"} else {menu.style.height=""};
+    setMenuHeight();
     menuAnimation();
 }
 
 hamburger.addEventListener('click', handleClick);
 
 //article-content baseline animation
-
 const baselineAnimation =()=>{
     var elements;
     var windowHeight;
@@ -382,3 +384,12 @@ dotNav.addEventListener("click", e => {
     dotNavUpdate(currentDot, targetDot);
     buttonInactive(prevButton, nextButton, slides, targetIndex);
 })
+
+//set copyrigt date
+const setYear=()=>
+{const date= new Date();
+const year = date.getFullYear();
+const dateField = document.querySelector(".copyright__year");
+dateField.innerHTML=year;}
+
+setYear();
