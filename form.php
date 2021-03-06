@@ -1,5 +1,5 @@
 <?php 
-    if(isset($_POST['submit'])){
+print_r($_POST);
         $userName=$_POST['name'];
         $email=$_POST['email'];
         $messageSubject = $_POST['subject'];
@@ -19,5 +19,5 @@
         $encoded_subject = mb_encode_mimeheader($messageSubject, 'UTF-8', 'B', "\r\n", strlen('Subject: '));
 
         mail($mailTo, $encoded_subject, $txt, $headers);
-    }
+    
 ?>

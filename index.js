@@ -132,7 +132,7 @@ form.addEventListener("input", () => {
 const sendData = () => {
     console.log("data sent");
     const data = new FormData();
-    inputs.forEach(data.append(input.name, input.value));
+    inputs.forEach((input)=>{data.append(input.name, input.value)});
     const xhr = new XMLHttpRequest();
     xhr.open("POST","form.php", true);
     xhr.send(data);
