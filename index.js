@@ -114,27 +114,39 @@ textMessage.addEventListener("focusout", () => {
 })
 
 const validateForm = () => {
-    
+
     if (form.checkValidity()) {
-    //if all fields are valid, set submit style to active
+        //if all fields are valid, set submit style to active
         submit.classList.add("main__form-submit--active");
         return;
-    //if any field is invalid, set submit style to inactive
+        //if any field is invalid, set submit style to inactive
     } else {
         submit.classList.remove("main__form-submit--active");
-    } 
+    }
 }
 
 form.addEventListener("input", () => {
-validateForm();
+    validateForm();
 })
-form.addEventListener("submit", (event)=>{
-    if(!form.checkValidity()){
+//-------------sending data to form.php
+const sendData = () => {
+    console.log("data sent");
+    const data = new FormData();
+    inputs.forEach(data.append(input.name, input.value));
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST","form.php", true);
+    xhr.send(data);
+}
+
+//-------------submit form
+
+form.addEventListener("submit", (event) => {
+    if (!form.checkValidity()) {
         event.preventDefault();
+
+    } else {
+        sendData();
     }
-    else {event.preventDefault();
-    setTimeout(()=>{form.submit()}, 5000);
-   submit.value="Wiadomość została wysłana";}
 })
 
 
@@ -157,7 +169,7 @@ const listItems = document.querySelector(".header__menu");
 const listItem = document.querySelectorAll(".header__menu-item-wrapper");
 const showMenu = (i) => {
     listItem[i].style.transform = ("translateY(" + [i] * 50 + "px)");
-    
+
 }
 const hideMenu = (i) => {
     listItem[i].style.transform = ("");
@@ -172,7 +184,13 @@ const menuAnimation = () => {
     }
 }
 
-const setMenuHeight = () =>{ if (menu.classList.contains("active")){menu.style.height= listItem.length*55 + "px"} else {menu.style.height=""};}
+const setMenuHeight = () => {
+    if (menu.classList.contains("active")) {
+        menu.style.height = listItem.length * 55 + "px"
+    } else {
+        menu.style.height = ""
+    };
+}
 
 const handleClick = () => {
     hamburger.classList.toggle("active");
@@ -197,34 +215,34 @@ const handleClick = () => {
 hamburger.addEventListener('click', handleClick);
 
 //article-content baseline animation
-const baselineAnimation =()=>{
+const baselineAnimation = () => {
     var elements;
     var windowHeight;
-  
+
     function init() {
-      elements = document.querySelectorAll(".main__article-content");
-      windowHeight = window.innerHeight;
+        elements = document.querySelectorAll(".main__article-content");
+        windowHeight = window.innerHeight;
     }
-  
+
     function checkPosition() {
-      for (var i = 0; i < elements.length; i++) {
-        var element = elements[i];
-        var positionFromTop = elements[i].getBoundingClientRect().top;
-  
-        if (positionFromTop - windowHeight <= 0-(elements[i].getBoundingClientRect().height)) {
-          element.classList.add("baseline");
+        for (var i = 0; i < elements.length; i++) {
+            var element = elements[i];
+            var positionFromTop = elements[i].getBoundingClientRect().top;
+
+            if (positionFromTop - windowHeight <= 0 - (elements[i].getBoundingClientRect().height)) {
+                element.classList.add("baseline");
+            }
         }
-      }
     }
-  
+
     window.addEventListener('scroll', checkPosition);
     window.addEventListener('resize', init);
-  
+
     init();
     checkPosition();
-  };
+};
 
-  baselineAnimation();
+baselineAnimation();
 
 //social media scroll
 const container = document.querySelector(".social-media__icons");
@@ -390,10 +408,11 @@ dotNav.addEventListener("click", e => {
 })
 
 //set copyrigt date
-const setYear=()=>
-{const date= new Date();
-const year = date.getFullYear();
-const dateField = document.querySelector(".copyright__year");
-dateField.innerHTML=year;}
+const setYear = () => {
+    const date = new Date();
+    const year = date.getFullYear();
+    const dateField = document.querySelector(".copyright__year");
+    dateField.innerHTML = year;
+}
 
 setYear();
