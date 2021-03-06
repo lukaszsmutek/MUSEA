@@ -132,7 +132,11 @@ form.addEventListener("submit", (event)=>{
     if(!form.checkValidity()){
         event.preventDefault();
     }
+    else {event.preventDefault();
+    setTimeout(()=>{form.submit()}, 5000);
+   submit.value="Wiadomość została wysłana";}
 })
+
 
 //--------textarea-character-counter
 const TextLengthCounter = (input) => {
