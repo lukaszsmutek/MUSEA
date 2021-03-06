@@ -845,12 +845,11 @@ body {
     cursor:pointer;
 }
 
-.main__form-submit--active:hover{
-    background-color:var(--btn-hover);
-}
-
-.main__form-submit--active:active{
-    background-color: var(--active);
+.main__form-submit,
+.main__form-submit--active{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .main__form-span {
