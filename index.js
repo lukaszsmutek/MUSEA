@@ -146,6 +146,9 @@ form.addEventListener("submit", (event) => {
 
     } else {
         sendData();
+        event.target.reset();
+        submit.classList.remove("main__form-submit--active");
+        inputs.forEach(input=>{hideValidIcon(input);})
     }
 })
 
