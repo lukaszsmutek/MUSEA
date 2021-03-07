@@ -26,6 +26,8 @@ const email = form.querySelector(".main__form-input--email");
 const subject = form.querySelector(".main__form-input--subject");
 const textMessage = form.querySelector(".main__form-input--message");
 const submit = form.querySelector(".main__form-submit");
+//--message character counter
+const counter = form.querySelector(".main__form-counter");
 
 //--functions
 const createAlert = (input, message) => {
@@ -88,7 +90,7 @@ const validateInput = (input) => {
     }
 }
 
-userName.addEventListener("input", () => {
+/*userName.addEventListener("input", () => {
     validateInput(userName);
 })
 userName.addEventListener("focusout", () => {
@@ -111,7 +113,11 @@ textMessage.addEventListener("input", () => {
 })
 textMessage.addEventListener("focusout", () => {
     validateInput(textMessage);
-})
+})*/
+
+inputs.forEach(input=>{input.addEventListener("input", ()=>{validateInput(input)})});
+inputs.forEach(input=>{input.addEventListener("focusout", ()=>{validateInput(input)})});
+
 
 const validateForm = () => {
 
@@ -148,7 +154,8 @@ form.addEventListener("submit", (event) => {
         sendData();
         event.target.reset();
         submit.classList.remove("main__form-submit--active");
-        inputs.forEach(input=>{hideValidIcon(input);})
+        inputs.forEach(input=>{hideValidIcon(input);});
+        counter.innerHTML = "";
     }
 })
 
@@ -157,7 +164,6 @@ form.addEventListener("submit", (event) => {
 const TextLengthCounter = (input) => {
     const textLength = input.value.length;
     const maxLength = input.maxLength;
-    const counter = form.querySelector(".main__form-counter");
     counter.innerHTML = `${textLength}/${maxLength}`;
 }
 
