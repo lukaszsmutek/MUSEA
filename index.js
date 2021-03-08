@@ -90,37 +90,19 @@ const validateInput = (input) => {
     }
 }
 
-/*userName.addEventListener("input", () => {
-    validateInput(userName);
-})
-userName.addEventListener("focusout", () => {
-    validateInput(userName);
-})
-email.addEventListener("input", () => {
-    validateInput(email);
-})
-email.addEventListener("focusout", () => {
-    validateInput(email);
-})
-subject.addEventListener("input", () => {
-    validateInput(subject);
-})
-subject.addEventListener("focusout", () => {
-    validateInput(subject);
-})
-textMessage.addEventListener("input", () => {
-    validateInput(textMessage);
-})
-textMessage.addEventListener("focusout", () => {
-    validateInput(textMessage);
-})*/
-
-inputs.forEach(input=>{input.addEventListener("input", ()=>{validateInput(input)})});
-inputs.forEach(input=>{input.addEventListener("focusout", ()=>{validateInput(input)})});
-
-
 const validateForm = () => {
-
+    //input behavior
+    inputs.forEach(input => {
+        input.addEventListener("input", () => {
+            validateInput(input)
+        })
+    });
+    inputs.forEach(input => {
+        input.addEventListener("focusout", () => {
+            validateInput(input)
+        })
+    });
+    //form check-validity
     if (form.checkValidity()) {
         //if all fields are valid, set submit style to active
         submit.classList.add("main__form-submit--active");
@@ -136,11 +118,25 @@ form.addEventListener("input", () => {
 })
 //-------------sending data to form.php
 const sendData = () => {
-    console.log("data sent");
     const data = new FormData();
-    inputs.forEach((input)=>{data.append(input.name, input.value)});
+    inputs.forEach((input) => {
+        data.append(input.name, input.value)
+    });
     const xhr = new XMLHttpRequest();
-    xhr.open("POST","form.php", true);
+
+    xhr.addEventListener("load", e => {
+        if (xhr.status === 200) {
+            submit.value="Wiadomość została wysłana"
+            setTimeout( ()=>{submit.value="Wyślij"},3000);
+        }
+    });
+    
+    xhr.addEventListener("error", e => {
+        submit.value="Błąd. Spróbuj ponownie"
+        setTimeout( ()=>{submit.value="Wyślij"},3000);
+    });
+
+    xhr.open("POST", "form.php", true);
     xhr.send(data);
 }
 
@@ -154,7 +150,9 @@ form.addEventListener("submit", (event) => {
         sendData();
         event.target.reset();
         submit.classList.remove("main__form-submit--active");
-        inputs.forEach(input=>{hideValidIcon(input);});
+        inputs.forEach(input => {
+            hideValidIcon(input);
+        });
         counter.innerHTML = "";
     }
 })
