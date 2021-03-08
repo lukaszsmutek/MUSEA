@@ -1181,7 +1181,6 @@ body {
         font-family: "Poppins", sans-serif;
         color: var(--primary);
         font-size: 1.4rem;
-        text-align: center;
         background-color: transparent;
         width: 38px;
         height: 38px;
@@ -1192,6 +1191,14 @@ body {
         -o-transition: all 0.3s ease-out;
         transition: all 0.3s ease-out;
 
+    }
+    .social-media__icon span{
+        position:absolute;
+        display:block;
+        text-align: center;
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
     }
 
     .social-media__icon:hover {
