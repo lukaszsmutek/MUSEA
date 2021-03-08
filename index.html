@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +12,7 @@
     <meta http-equiv="expires" content="43200">
     <!--favicons-->
     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="16x16"
-        href="/components/icons/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/components/icons/favicons/favicon.ico">
     <!--fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital@0;1&family=Poppins:wght@600&display=swap"
@@ -25,8 +25,9 @@
     <div id="start" class="wrapper">
         <!--header-->
         <header class="header"><a href="#start">
-            <div class="header__logo">
-            </div></a>
+                <div class="header__logo">
+                </div>
+            </a>
             <nav class="header__navigation">
                 <div class="header__hamburger-container">
                     <div class="header__hamburger-icon">
@@ -36,16 +37,24 @@
                 </div>
                 <div class="header__menu-container">
                     <ul class="header__menu">
-                        <li class="header__menu-item-wrapper"><a href="#about"><div class="header__menu-item">O nas</div></a>
+                        <li class="header__menu-item-wrapper"><a href="#about">
+                                <div class="header__menu-item">O nas</div>
+                            </a>
                         </li>
                         <li class="header__menu-item-wrapper">
-                            <a href="#products"><div class="header__menu-item">Oferta</div></a>
+                            <a href="#products">
+                                <div class="header__menu-item">Oferta</div>
+                            </a>
                         </li>
                         <li class="header__menu-item-wrapper">
-                            <a href="#products"><div class="header__menu-item">Galeria</div></a>
+                            <a href="#gallery">
+                                <div class="header__menu-item">Galeria</div>
+                            </a>
                         </li>
                         <li class="header__menu-item-wrapper">
-                            <a href="#contact"><div class="header__menu-item">Kontakt</div></a>
+                            <a href="#contact">
+                                <div class="header__menu-item">Kontakt</div>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -114,16 +123,15 @@
                                 <p class="main__section-paragraph">
                                     Produkowane przez nas reprinty to wysokiej jakości wydruki cyfrowe oddające rozmiar
                                     i&nbsp;kolorystykę oryginału. Pełniejsze wyobrażenie o&nbsp;obiekcie oryginalnym
-                                    dają
-                                    kopie, które
-                                    poza kolorystyką i&nbsp;rozmiarem odtwarzają pozostałe cechy&nbsp;- rodzaj papieru,
-                                    strukturę
-                                    zastosowane technologie uszlachetniania druku, a&nbsp;nawet stopień zniszczenia
-                                    i&nbsp;zużycia
+                                    dają kopie, które poza kolorystyką i&nbsp;rozmiarem odtwarzają pozostałe
+                                    cechy&nbsp;- rodzaj papieru,
+                                    strukturę zastosowane technologie uszlachetniania druku, a&nbsp;nawet stopień
+                                    zniszczenia i&nbsp;zużycia
                                     oryginału.
                                 </p>
-                                <p class="main__section-paragraph">edukatorów muzealnych kopie na materiałach
-                                    syntetycznych</p>
+                                <p class="main__section-paragraph">Edukatorom muzealnym proponujemy rekwizyty
+                                    wydrukowane na trwałych materiałach
+                                    syntetycznych, odpowiednie do prezentowania poza gablotami.</p>
                             </section>
                             <section class="main__section">
                                 <h4 class="main__section-title">Jak powstają nasze kopie i&nbsp;reprinty</h4>
@@ -132,17 +140,23 @@
                                     powierzonej, przy
                                     użyciu najwyższej jakości materiałów spełniających wytyczne konserwatorskie oraz
                                     normy
-                                    DIN, ISO i&nbsp;ANSI dla archiwaliów.
+                                    DIN, ISO i&nbsp;ANSI dla archiwaliów.</p>
+                                    <p class="main__section-paragraph">Na życzenie klienta reprinty i&nbsp;kopie mogą zostać poddane cyfrowemu retuszowi
+                                    polegającego m.in.&nbsp;na usunięciu rozdarć, zabrudzeń, znaków własności lub danych
+                                    wrażliwych.</p>
+                                    <p class="main__section-paragraph">
                                     Dzięki wykorzystaniu szerokiej gamy papierów, pergaminów, bibuł i&nbsp;innych
                                     podłoży
                                     jakości
                                     muzealnej do każdego obiektu podchodzimy indywidualnie, dbając o&nbsp;detale
                                     i&nbsp;naturalny
-                                    wygląd gotowej kopii.
+                                    wygląd gotowej kopii.</p>
+                                    <p class="main__section-paragraph">
                                     Łączymy nowoczesne i&nbsp;tradycyjne technologie, co pozwala na odwzorowanie zarówno
                                     eksponatów jednoelementowych (rękopisy, dokumenty, zdjęcia) jak i&nbsp;złożonych
                                     (legitymacje, paszporty, książki etc.) Odtwarzamy
-                                    złocenia, tłoczenia, pieczęcie, perforacje oraz inne metody uszlachetniające.
+                                    złocenia, tłoczenia, pieczęcie, perforacje oraz inne metody artystyczne i introligatorskie.</p>
+                                    <p class="main__section-paragraph">
                                     Kluczowe
                                     etapy prac, takie jak dobór podłoży czy wydruki próbne, przeprowadzamy w&nbsp;muzeum
                                     w&nbsp;porozumieniu z&nbsp;konserwatorami, kuratorami i&nbsp;kustoszami, dzięki
@@ -183,7 +197,7 @@
                 </div>
             </div>
             <!--gallery-->
-            <div class="main__gallery-container">
+            <div class="main__gallery-container" id="gallery">
                 <div class="main__gallery-title"></div>
                 <div class="main__gallery">
                     <div class="main__gallery-carousel-container">
@@ -236,33 +250,45 @@
                     <form method="POST" class="main__form" novalidate onsubmit="return false">
                         <h2 class="main__form-header">Napisz do nas</h2>
                         <div class="main__form-input-container">
-                            <input type="text" name="name" class="main__form-input main__form-input--name"  pattern="[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ ]{1,}$" maxlength="50" required>
-                            <img src="./components/icons/validation/valid.svg" alt="valid input" class="input__icon input__icon--valid is-hidden">
-                            <img src="./components/icons/validation/invalid.svg" alt="invalid input" class="input__icon input__icon--invalid is-hidden">
+                            <input type="text" name="name" class="main__form-input main__form-input--name"
+                                pattern="[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ ]{1,}$" maxlength="50" required>
+                            <img src="./components/icons/validation/valid.svg" alt="valid input"
+                                class="input__icon input__icon--valid is-hidden">
+                            <img src="./components/icons/validation/invalid.svg" alt="invalid input"
+                                class="input__icon input__icon--invalid is-hidden">
                             <label for="name" class="main__form-label">Imię</label>
                             <span class="main__form-span">Imię</span>
                             <span class="main__form-alert"></span>
                         </div>
                         <div class="main__form-input-container">
-                            <input type="email" name="email" class="main__form-input main__form-input--email" maxlength="255" required>
-                            <img src="./components/icons/validation/valid.svg" alt="valid input" class="input__icon input__icon--valid is-hidden">
-                            <img src="./components/icons/validation/invalid.svg" alt="invalid input" class="input__icon input__icon--invalid is-hidden">
+                            <input type="email" name="email" class="main__form-input main__form-input--email"
+                                maxlength="255" required>
+                            <img src="./components/icons/validation/valid.svg" alt="valid input"
+                                class="input__icon input__icon--valid is-hidden">
+                            <img src="./components/icons/validation/invalid.svg" alt="invalid input"
+                                class="input__icon input__icon--invalid is-hidden">
                             <label for="email" class="main__form-label"> Email</label>
                             <span class="main__form-span">Email</span>
                             <span class="main__form-alert"></span>
                         </div>
                         <div class="main__form-input-container">
-                            <input type="text" name="subject" class="main__form-input main__form-input--subject" maxlength="200" required>
-                            <img src="./components/icons/validation/valid.svg" alt="valid input" class="input__icon input__icon--valid is-hidden">
-                            <img src="./components/icons/validation/invalid.svg" alt="invalid input" class="input__icon input__icon--invalid is-hidden">
+                            <input type="text" name="subject" class="main__form-input main__form-input--subject"
+                                maxlength="200" required>
+                            <img src="./components/icons/validation/valid.svg" alt="valid input"
+                                class="input__icon input__icon--valid is-hidden">
+                            <img src="./components/icons/validation/invalid.svg" alt="invalid input"
+                                class="input__icon input__icon--invalid is-hidden">
                             <label for="subject" class="main__form-label">Temat</label>
                             <span class="main__form-span">Temat</span>
                             <span class="main__form-alert"></span>
                         </div>
                         <div class="main__form-input-container">
-                            <textarea name="message" class="main__form-input main__form-input--message" maxlength="1000" required></textarea>
-                            <img src="./components/icons/validation/valid.svg" alt="valid input" class="input__icon input__icon--valid is-hidden">
-                            <img src="./components/icons/validation/invalid.svg" alt="invalid input" class="input__icon input__icon--invalid is-hidden">
+                            <textarea name="message" class="main__form-input main__form-input--message" maxlength="1000"
+                                required></textarea>
+                            <img src="./components/icons/validation/valid.svg" alt="valid input"
+                                class="input__icon input__icon--valid is-hidden">
+                            <img src="./components/icons/validation/invalid.svg" alt="invalid input"
+                                class="input__icon input__icon--invalid is-hidden">
                             <label for="message" class="main__form-label">Wiadomość</label>
                             <span class="main__form-span">Wiadomość</span>
                             <span class="main__form-counter"></span>
@@ -277,15 +303,18 @@
                     <h5 class="main__article-title">Nasi klienci</h5>
                     <div class="clients__icons-container">
                         <ul class="clients__icons">
-                            <li class="clients__icon"><a href="https://muzeumslaskie.pl/pl/"><img src="./components/images/ms.svg" alt="Muzeum Śląskie"
-                                    title=""></a>
+                            <li class="clients__icon"><a href="https://muzeumslaskie.pl/pl/" target="_blank"><img
+                                        src="./components/images/ms.svg" alt="Muzeum Śląskie" title=""></a>
                             </li>
-                            <li class="clients__icon"><a href="https://www.polin.pl/"><img src="./components/images/polin.svg" alt="POLIN" title=""></a>
+                            <li class="clients__icon"><a href="https://www.polin.pl/" target="_blank"><img
+                                        src="./components/images/polin.svg" alt="POLIN" title=""></a>
                             </li>
-                            <li class="clients__icon"><a href="https://muzeumpilsudski.pl/"><img src="./components/images/mjp.svg"
-                                    alt="Muzeum Józefa Piłsudskiego" title=""></a></li>
-                            <li class="clients__icon"><a href="https://www.jhi.pl/"><img src="./components/images/zih.svg"
-                                    alt="Żydowski Instytut Historyczny" title=""></a></li>
+                            <li class="clients__icon"><a href="https://muzeumpilsudski.pl/" target="_blank"><img
+                                        src="./components/images/mjp.svg" alt="Muzeum Józefa Piłsudskiego" title=""></a>
+                            </li>
+                            <li class="clients__icon"><a href="https://www.jhi.pl/" target="_blank"><img
+                                        src="./components/images/zih.svg" alt="Żydowski Instytut Historyczny"
+                                        title=""></a></li>
                         </ul>
                     </div>
                 </div>
@@ -295,9 +324,14 @@
             <!--media-->
             <div class="social-media__icons-container">
                 <div class="social-media__icons">
-                    <button class="social-media__icon social-media__icon--top">In</button>
-                    <button class="social-media__icon social-media__icon--middle">Ig</button>
-                    <button class="social-media__icon social-media__icon--bottom">Fb</button></div>
+                    <a class="social-media__icon social-media__icon--top"
+                        href="https://www.facebook.com/MUSEA-Kopie-i-reprinty-muzealne-100874788748493/"
+                        target="_blank"><span>In</span></a>
+                    <a class="social-media__icon social-media__icon--middle" href="https://www.instagram.com/museapl/"
+                        target="_blank"><span>Ig</span></a>
+                    <a class="social-media__icon social-media__icon--bottom"
+                        href="https://www.facebook.com/MUSEA-Kopie-i-reprinty-muzealne-100874788748493/"
+                        target="_blank"><span>Fb</span></a></div>
 
             </div>
         </main>
@@ -316,15 +350,16 @@
                     <ul class="company-info__contact">
                         <li>tel: <a href="tel:+48 795-057-442">+48 795-057-442</a></li>
                         <li>e-mail: <a href=”mailto:musea@musea.pl” target=”_blank” rel=noopener
-                                noreferrer””>contact@musea.pl</a></li>
+                                noreferrer””>musea@musea.pl</a></li>
                     </ul>
                     <ul class="company-info__payments">
                         <li>nip: PL 715-173-08-23</li>
                         <li>konto bankowe: ING Bank Śląski, SWIFT: INGBPLPW66105014611000009134079301</li>
                     </ul>
                     <ul class="company-info__media">
-                        <li>Facebook</li>
-                        <li>Instagram</li>
+                        <li><a href="https://www.facebook.com/MUSEA-Kopie-i-reprinty-muzealne-100874788748493/"
+                                target="_blank">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/museapl/" target="_blank">Instagram</a></li>
                         <li>LinkedIn</li>
                     </ul>
                 </address>
